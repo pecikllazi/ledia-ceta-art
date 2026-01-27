@@ -165,7 +165,11 @@ export const artistProfileQuery = groq`
     biography,
     artistStatement,
     cv,
-    cvPdf,
+    cvPdf {
+      asset-> {
+        url
+      }
+    },
     socialLinks
   }
 `;

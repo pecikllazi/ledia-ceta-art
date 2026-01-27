@@ -19,14 +19,15 @@ export default function Navigation() {
   return (
     <nav className="hidden md:flex items-center space-x-8">
       {links.map((link) => {
-        const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+        const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
         return (
           <Link
             key={link.href}
             href={link.href}
             className={clsx(
-              'text-sm font-medium transition-colors hover:text-sea-deep',
-              isActive ? 'text-sea-deep' : 'text-text-primary'
+              'text-sm font-medium transition-all hover:text-sea-deep relative pb-1',
+              isActive ? 'text-sea-deep' : 'text-text-primary',
+              isActive && 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-sea-deep'
             )}
           >
             {link.label}

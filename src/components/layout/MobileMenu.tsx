@@ -53,15 +53,15 @@ export default function MobileMenu() {
         <div className="absolute top-full left-0 right-0 bg-white border-t border-warm-gray shadow-lg">
           <nav className="container-custom py-4">
             {links.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={clsx(
-                    'block py-3 text-sm font-medium transition-colors hover:text-sea-deep',
-                    isActive ? 'text-sea-deep' : 'text-text-primary'
+                    'block py-3 px-4 text-sm font-medium transition-colors hover:text-sea-deep rounded',
+                    isActive ? 'text-sea-deep bg-warm-gray' : 'text-text-primary'
                   )}
                 >
                   {link.label}
