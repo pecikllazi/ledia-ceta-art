@@ -7,11 +7,11 @@ import ArtworkFilter from '@/components/artwork/ArtworkFilter';
 export const revalidate = 60;
 
 interface PageProps {
-  searchParams: { medium?: string };
+  searchParams: Promise<{ medium?: string }>;
 }
 
 export default async function WorksPage({ searchParams }: PageProps) {
-  const { medium } = searchParams;
+  const { medium } = await searchParams;
 
   const artworks = medium
     ? await client.fetch(artworksByMediumQuery, { medium })
