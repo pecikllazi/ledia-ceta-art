@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 export const revalidate = 60;
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -17,7 +17,8 @@ export async function generateStaticParams() {
 }
 
 export default async function ArtworkPage({ params }: PageProps) {
-  const artwork = await client.fetch(artworkBySlugQuery, { slug: params.slug });
+  const { slug } = await params;
+  const artwork = await client.fetch(artworkBySlugQuery, { slug });
 
   if (!artwork) {
     notFound();

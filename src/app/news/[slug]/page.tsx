@@ -10,7 +10,7 @@ import Link from 'next/link';
 export const revalidate = 60;
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export default async function NewsDetailPage({ params }: PageProps) {
-  const news = await client.fetch(newsBySlugQuery, { slug: params.slug });
+  const { slug } = await params;
+  const news = await client.fetch(newsBySlugQuery, { slug });
 
   if (!news) {
     notFound();

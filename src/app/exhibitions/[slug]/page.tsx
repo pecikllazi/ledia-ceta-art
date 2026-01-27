@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 export const revalidate = 60;
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -17,8 +17,9 @@ export async function generateStaticParams() {
 }
 
 export default async function ExhibitionPage({ params }: PageProps) {
+  const { slug } = await params;
   const exhibition = await client.fetch(exhibitionBySlugQuery, {
-    slug: params.slug,
+    slug,
   });
 
   if (!exhibition) {
