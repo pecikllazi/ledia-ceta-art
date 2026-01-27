@@ -25,9 +25,10 @@ export default function Navigation() {
             key={link.href}
             href={link.href}
             className={clsx(
-              'text-sm font-medium transition-all hover:text-sea-deep relative pb-1',
-              isActive ? 'text-sea-deep' : 'text-text-primary',
-              isActive && 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-sea-deep'
+              'text-sm font-medium transition-all pb-1 border-b-2',
+              isActive
+                ? 'text-sea-deep border-sea-deep'
+                : 'text-text-primary border-transparent hover:text-sea-deep hover:border-sea-light'
             )}
           >
             {link.label}

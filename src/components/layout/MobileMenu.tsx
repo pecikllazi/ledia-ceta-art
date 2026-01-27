@@ -60,8 +60,10 @@ export default function MobileMenu() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={clsx(
-                    'block py-3 px-4 text-sm font-medium transition-colors hover:text-sea-deep rounded',
-                    isActive ? 'text-sea-deep bg-warm-gray' : 'text-text-primary'
+                    'block py-3 px-4 text-sm font-medium transition-colors rounded border-l-4',
+                    isActive
+                      ? 'text-sea-deep bg-warm-gray border-sea-deep'
+                      : 'text-text-primary border-transparent hover:text-sea-deep hover:bg-off-white'
                   )}
                 >
                   {link.label}
