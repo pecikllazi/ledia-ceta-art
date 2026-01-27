@@ -10,13 +10,15 @@ export const revalidate = 60;
 export default async function HomePage() {
   const data = await client.fetch(homepageQuery);
 
+  const heroImage = data.settings?.heroImage || data.featuredWorks?.[0]?.mainImage;
+
   return (
     <>
       <Hero
         name={data.artist?.name || 'Ledia Çeta'}
         tagline={data.artist?.tagline || 'Visual Artist'}
         portrait={data.artist?.portrait}
-        featuredImage={data.featuredWorks?.[0]?.mainImage}
+        featuredImage={heroImage}
       />
       <FeaturedWorks artworks={data.featuredWorks || []} />
       <CurrentExhibition exhibition={data.settings?.currentExhibition} />

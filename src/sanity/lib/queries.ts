@@ -180,6 +180,7 @@ export const siteSettingsQuery = groq`
     siteName,
     siteDescription,
     ogImage,
+    heroImage,
     contactEmail,
     contactPhone,
     location,
@@ -203,6 +204,7 @@ export const homepageQuery = groq`
 {
   "settings": *[_type == "siteSettings"][0] {
     siteName,
+    heroImage,
     currentExhibition-> {
       _id,
       title,

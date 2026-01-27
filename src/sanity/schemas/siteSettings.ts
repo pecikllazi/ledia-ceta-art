@@ -22,6 +22,13 @@ export default defineType({
       type: 'image',
     }),
     defineField({
+      name: 'heroImage',
+      title: 'Homepage Hero Image',
+      type: 'image',
+      description: 'Featured image for the homepage hero section. If not set, will use the first featured artwork.',
+      options: { hotspot: true },
+    }),
+    defineField({
       name: 'contactEmail',
       title: 'Contact Email',
       type: 'string',
