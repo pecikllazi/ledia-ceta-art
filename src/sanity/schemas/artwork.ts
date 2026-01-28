@@ -35,17 +35,8 @@ export default defineType({
     defineField({
       name: 'medium',
       title: 'Medium',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Watercolours on Silk', value: 'watercolour-silk' },
-          { title: 'Acrylic on Canvas', value: 'acrylic-canvas' },
-          { title: 'Mixed Media', value: 'mixed-media' },
-          { title: 'Installation', value: 'installation' },
-          { title: 'Oil on Canvas', value: 'oil-canvas' },
-          { title: 'Porcelain', value: 'porcelain' },
-        ],
-      },
+      type: 'reference',
+      to: [{ type: 'mediumType' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({

@@ -6,7 +6,10 @@ interface Artwork {
   title: string;
   slug: { current: string };
   year: number;
-  medium: string;
+  medium?: {
+    name: string;
+    slug?: { current: string };
+  };
   mainImage: any;
   available?: boolean;
 }
@@ -49,7 +52,7 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
             {artwork.title}
           </h3>
           <p className="text-sm text-text-secondary">
-            {artwork.year} • {artwork.medium}
+            {artwork.year}{artwork.medium && ` • ${artwork.medium.name}`}
           </p>
         </Link>
       ))}

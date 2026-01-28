@@ -8,7 +8,9 @@ interface Artwork {
   title: string;
   slug: { current: string };
   year: number;
-  medium: string;
+  medium?: {
+    name: string;
+  };
   mainImage: any;
 }
 
@@ -50,7 +52,7 @@ export default function FeaturedWorks({ artworks }: FeaturedWorksProps) {
                 {artwork.title}
               </h3>
               <p className="text-sm text-text-secondary">
-                {artwork.year} • {artwork.medium}
+                {artwork.year}{artwork.medium && ` • ${artwork.medium.name}`}
               </p>
             </Link>
           ))}

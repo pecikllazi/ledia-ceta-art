@@ -16,7 +16,9 @@ interface Artwork {
   title: string;
   titleChinese?: string;
   year: number;
-  medium: string;
+  medium?: {
+    name: string;
+  };
   surface?: string;
   dimensions?: {
     width: number;
@@ -89,10 +91,12 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
               <span className="text-text-secondary">Year</span>
               <span className="font-medium">{artwork.year}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-text-secondary">Medium</span>
-              <span className="font-medium">{artwork.medium}</span>
-            </div>
+            {artwork.medium && (
+              <div className="flex justify-between">
+                <span className="text-text-secondary">Medium</span>
+                <span className="font-medium">{artwork.medium.name}</span>
+              </div>
+            )}
             {artwork.surface && (
               <div className="flex justify-between">
                 <span className="text-text-secondary">Surface</span>

@@ -7,7 +7,10 @@ export const allArtworksQuery = groq`
     title,
     slug,
     year,
-    medium,
+    medium-> {
+      name,
+      slug
+    },
     mainImage,
     featured,
     available
@@ -20,7 +23,9 @@ export const featuredArtworksQuery = groq`
     title,
     slug,
     year,
-    medium,
+    medium-> {
+      name
+    },
     mainImage
   }
 `;
@@ -32,7 +37,9 @@ export const artworkBySlugQuery = groq`
     titleChinese,
     slug,
     year,
-    medium,
+    medium-> {
+      name
+    },
     surface,
     dimensions,
     mainImage,
@@ -53,12 +60,15 @@ export const artworkBySlugQuery = groq`
 `;
 
 export const artworksByMediumQuery = groq`
-  *[_type == "artwork" && medium == $medium] | order(year desc) {
+  *[_type == "artwork" && medium->slug.current == $medium] | order(year desc) {
     _id,
     title,
     slug,
     year,
-    medium,
+    medium-> {
+      name,
+      slug
+    },
     mainImage,
     available
   }
