@@ -5,40 +5,28 @@ import Button from '@/components/ui/Button';
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero Section with Portrait */}
+      {/* Hero Section */}
       <div className="relative bg-gradient-to-b from-off-white to-white">
         <Container className="section-padding">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-[1fr,1.2fr] gap-12 items-center">
-              <div className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden rounded-lg shadow-2xl">
-                <Image
-                  src="/aboutmepic.jpg"
-                  alt="Ledia Çeta"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-
-              <div>
-                <p className="text-sea-medium font-medium mb-3 tracking-wide uppercase text-sm">
-                  Visual Artist
-                </p>
-                <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 leading-tight">
-                  Ledia Çeta
-                </h1>
-                <p className="text-xl md:text-2xl text-text-secondary mb-8 leading-relaxed">
-                  An Albanian painter capturing the spirit of the sea through three decades
-                  of artistic exploration across continents.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button href="/works" variant="primary">
-                    View Works
-                  </Button>
-                  <Button href="/contact" variant="outline">
-                    Get in Touch
-                  </Button>
-                </div>
+            <div className="text-center mb-12">
+              <p className="text-sea-medium font-medium mb-3 tracking-wide uppercase text-sm">
+                Visual Artist
+              </p>
+              <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 leading-tight">
+                Ledia Çeta
+              </h1>
+              <p className="text-xl md:text-2xl text-text-secondary mb-8 leading-relaxed max-w-3xl mx-auto">
+                An Albanian painter capturing the spirit of the sea through three decades
+                of artistic exploration across continents.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button href="/works" variant="primary">
+                  View Works
+                </Button>
+                <Button href="/contact" variant="outline">
+                  Get in Touch
+                </Button>
               </div>
             </div>
           </div>
@@ -47,20 +35,32 @@ export default function AboutPage() {
 
       {/* Artist Statement */}
       <Container className="py-20 md:py-32">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-light mb-8 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center">
             The Sea as Spiritual Anchor
           </h2>
-          <div className="prose prose-lg md:prose-xl max-w-none text-text-secondary space-y-6">
-            <p className="text-center text-xl md:text-2xl font-light leading-relaxed">
-              As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
-              accompanying my husband across numerous countries, witnessing the splendour of diverse
-              civilisations and gaining firsthand insight into contemporary art.
-            </p>
-            <p className="text-center text-xl md:text-2xl font-light leading-relaxed">
-              Amid this constant movement, <span className="text-sea-deep font-medium">the sea of Albania has remained
-              my spiritual anchor.</span>
-            </p>
+          <div className="grid md:grid-cols-[300px,1fr] gap-12 items-center">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg mx-auto md:mx-0">
+              <Image
+                src="/aboutmepic.jpg"
+                alt="Ledia Çeta"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="prose prose-lg max-w-none text-text-secondary space-y-6">
+              <p className="text-lg md:text-xl font-light leading-relaxed">
+                As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
+                accompanying my husband across numerous countries, witnessing the splendour of diverse
+                civilisations and gaining firsthand insight into contemporary art.
+              </p>
+              <p className="text-lg md:text-xl font-light leading-relaxed">
+                Amid this constant movement, <span className="text-sea-deep font-medium">the sea of Albania has remained
+                my spiritual anchor.</span> I depict the sea with the stroke of the spatula – a practice
+                that brings me profound emotional healing.
+              </p>
+            </div>
           </div>
         </div>
       </Container>
@@ -334,18 +334,18 @@ export default function AboutPage() {
       </Container>
 
       {/* Final CTA */}
-      <div className="bg-sea-deep text-white py-20">
+      <div className="bg-sea-deep py-20">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-light mb-6 text-white">
               Let's Connect
             </h2>
             <p className="text-xl mb-8 text-sea-light">
               Interested in my work or have a commission in mind?
             </p>
-            <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white hover:text-sea-deep">
-              Get in Touch
-            </Button>
+            <button className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-sea-light text-sea-light hover:bg-sea-light hover:text-sea-deep">
+              <Link href="/contact">Get in Touch</Link>
+            </button>
           </div>
         </Container>
       </div>
