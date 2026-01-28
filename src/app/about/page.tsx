@@ -343,9 +343,12 @@ export default function AboutPage() {
             <p className="text-xl mb-8 text-sea-light">
               Interested in my work or have a commission in mind?
             </p>
-            <button className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-sea-light text-sea-light hover:bg-sea-light hover:text-sea-deep">
-              <Link href="/contact">Get in Touch</Link>
-            </button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-sea-light text-sea-light hover:bg-sea-light hover:text-sea-deep"
+            >
+              Get in Touch
+            </Link>
           </div>
         </Container>
       </div>
