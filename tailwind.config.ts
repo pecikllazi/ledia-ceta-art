@@ -9,7 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        white: '#FAFAFA',
         'off-white': '#F5F5F5',
         black: '#1A1A1A',
         charcoal: '#2D2D2D',
