@@ -53,31 +53,21 @@ export default function AboutPage() {
 
       {/* Artist Statement */}
       <Container className="py-20 md:py-32">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center">
             The Sea as Spiritual Anchor
           </h2>
-          <div className="grid md:grid-cols-[180px,1fr] gap-8 items-start">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-md mx-auto md:mx-0">
-              <Image
-                src="/aboutmepic.jpg"
-                alt="Ledia Çeta"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="prose prose-lg max-w-none text-text-secondary space-y-6">
-              <p className="text-lg md:text-xl font-light leading-relaxed">
-                As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
-                accompanying my husband across numerous countries, witnessing the splendour of diverse
-                civilisations and gaining firsthand insight into contemporary art.
-              </p>
-              <p className="text-lg md:text-xl font-light leading-relaxed">
-                Amid this constant movement, <span className="text-sea-deep font-medium">the sea of Albania has remained
-                my spiritual anchor.</span> I depict the sea with the stroke of the spatula – a practice
-                that brings me profound emotional healing.
-              </p>
-            </div>
+          <div className="prose prose-lg max-w-none text-text-secondary space-y-6">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-center">
+              As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
+              accompanying my husband across numerous countries, witnessing the splendour of diverse
+              civilisations and gaining firsthand insight into contemporary art.
+            </p>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-center">
+              Amid this constant movement, <span className="text-sea-deep font-medium">the sea of Albania has remained
+              my spiritual anchor.</span> I depict the sea with the stroke of the spatula – a practice
+              that brings me profound emotional healing.
+            </p>
           </div>
         </div>
       </Container>
@@ -153,14 +143,14 @@ export default function AboutPage() {
 
             <div className="space-y-12">
               {/* Beijing Biennale - Featured */}
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+              <Link href="/exhibitions/beijing-biennale-2025" className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-8 md:p-12">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                     <div>
                       <span className="inline-block px-3 py-1 bg-sea-deep text-white text-xs font-medium rounded-full mb-3">
                         International Biennale
                       </span>
-                      <h3 className="text-2xl md:text-3xl font-serif font-medium mb-2">
+                      <h3 className="text-2xl md:text-3xl font-serif font-medium mb-2 group-hover:text-sea-deep transition-colors">
                         The 10th Beijing International Art Biennale
                       </h3>
                       <p className="text-sea-medium font-medium italic">"Coexistence"</p>
@@ -178,17 +168,17 @@ export default function AboutPage() {
                     Participating artwork: <span className="italic">Under the Sea</span> — Acrylic on Canvas
                   </p>
                 </div>
-              </div>
+              </Link>
 
               {/* Conference */}
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <Link href="/exhibitions/biab-conference-2025" className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-8 md:p-10">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                     <div>
                       <span className="inline-block px-3 py-1 bg-sea-medium text-white text-xs font-medium rounded-full mb-3">
                         Roundtable Speaker
                       </span>
-                      <h3 className="text-xl md:text-2xl font-serif font-medium mb-2">
+                      <h3 className="text-xl md:text-2xl font-serif font-medium mb-2 hover:text-sea-deep transition-colors">
                         International Art Conference of BIAB
                       </h3>
                       <p className="text-sea-medium font-medium italic text-sm">
@@ -204,51 +194,51 @@ export default function AboutPage() {
                     Session: Fluid Contemporaneity and the Construction of Cultural Subjectivity
                   </p>
                 </div>
-              </div>
+              </Link>
 
               {/* Other exhibitions in compact grid */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/everything-has-a-spirit-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">Dec 9–10, 2025 • Guangzhou</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">Everything Has a Spirit</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">Everything Has a Spirit</h4>
                   <p className="text-sm text-text-secondary mb-2">International Environmental Art Exhibition</p>
                   <p className="text-xs text-text-muted italic">The Sea Before the Storm</p>
-                </div>
+                </Link>
 
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/endless-river-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">Oct 13–27, 2025 • Beijing</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">The Endless River</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">The Endless River</h4>
                   <p className="text-sm text-text-secondary mb-2">Contemporary Artists Invitational</p>
                   <p className="text-xs text-text-muted italic">Fire — Mixed Media</p>
-                </div>
+                </Link>
 
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/taiyuan-contemporary-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">Oct 2025 – Mar 2026 • Taiyuan</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">Taiyuan Contemporary</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">Taiyuan Contemporary</h4>
                   <p className="text-sm text-text-secondary mb-2">International Contemporary Art Exhibition</p>
                   <p className="text-xs text-text-muted italic">3 works on silk</p>
-                </div>
+                </Link>
 
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/melody-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">Jun 28 – Aug 17, 2025 • Shenzhen</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">Melody</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">Melody</h4>
                   <p className="text-sm text-text-secondary mb-2">Contemporary Art Exhibition</p>
                   <p className="text-xs text-text-muted italic">16 paintings</p>
-                </div>
+                </Link>
 
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/symphony-of-civilizations-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">May 29 – Jun 28, 2025 • Beijing</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">Symphony of Civilizations</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">Symphony of Civilizations</h4>
                   <p className="text-sm text-text-secondary mb-2">Chinese & Albanian Cultural Heritage</p>
                   <p className="text-xs text-text-muted italic">10 paintings</p>
-                </div>
+                </Link>
 
-                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                <Link href="/exhibitions/dragons-and-snakes-2025" className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                   <p className="text-xs text-text-muted mb-2">Mar 1–30, 2025 • Hebei</p>
-                  <h4 className="text-lg font-serif font-medium mb-2">Dragons and Snakes</h4>
+                  <h4 className="text-lg font-serif font-medium mb-2 hover:text-sea-deep transition-colors">Dragons and Snakes</h4>
                   <p className="text-sm text-text-secondary mb-2">International Contemporary Art Exhibition</p>
                   <p className="text-xs text-text-muted italic">At the Seaside — Installation</p>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
