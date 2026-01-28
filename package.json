@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "add-exhibitions": "tsx scripts/add-exhibitions.ts"
+    "add-exhibitions": "tsx scripts/add-exhibitions.ts",
+    "add-artworks": "tsx scripts/add-artworks.ts"
   },
   "keywords": [],
   "author": "",
