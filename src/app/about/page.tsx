@@ -6,18 +6,32 @@ import Button from '@/components/ui/Button';
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-b from-off-white to-white">
-        <Container className="section-padding">
+      {/* Hero Section with Background */}
+      <div className="relative min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/aboutmevisual.jpg"
+            alt="Underwater sea painting"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        </div>
+
+        {/* Content */}
+        <Container className="section-padding relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-sea-medium font-medium mb-3 tracking-wide uppercase text-sm">
+              <p className="text-sea-light font-medium mb-3 tracking-wide uppercase text-sm">
                 Visual Artist
               </p>
-              <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 leading-tight text-white">
                 Ledia Çeta
               </h1>
-              <p className="text-xl md:text-2xl text-text-secondary mb-8 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
                 An Albanian painter capturing the spirit of the sea through three decades
                 of artistic exploration across continents.
               </p>
@@ -25,9 +39,12 @@ export default function AboutPage() {
                 <Button href="/works" variant="primary">
                   View Works
                 </Button>
-                <Button href="/contact" variant="outline">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-white text-white hover:bg-black hover:text-white hover:border-black"
+                >
                   Get in Touch
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -40,14 +57,13 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center">
             The Sea as Spiritual Anchor
           </h2>
-          <div className="grid md:grid-cols-[300px,1fr] gap-12 items-center">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg mx-auto md:mx-0">
+          <div className="grid md:grid-cols-[180px,1fr] gap-8 items-start">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-md mx-auto md:mx-0">
               <Image
                 src="/aboutmepic.jpg"
                 alt="Ledia Çeta"
                 fill
                 className="object-cover"
-                priority
               />
             </div>
             <div className="prose prose-lg max-w-none text-text-secondary space-y-6">
