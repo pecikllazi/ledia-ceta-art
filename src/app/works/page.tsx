@@ -1,5 +1,5 @@
 import { client } from '@/sanity/lib/client';
-import { allArtworksQuery, artworksByMediumQuery } from '@/sanity/lib/queries';
+import { allArtworksQuery, artworksByMediumQuery, mediumTypesQuery } from '@/sanity/lib/queries';
 import Container from '@/components/ui/Container';
 import ArtworkGrid from '@/components/artwork/ArtworkGrid';
 import ArtworkFilter from '@/components/artwork/ArtworkFilter';
@@ -13,9 +13,12 @@ interface PageProps {
 export default async function WorksPage({ searchParams }: PageProps) {
   const { medium } = await searchParams;
 
-  const artworks = medium
-    ? await client.fetch(artworksByMediumQuery, { medium })
-    : await client.fetch(allArtworksQuery);
+  const [artworks, mediums] = await Promise.all([
+    medium
+      ? client.fetch(artworksByMediumQuery, { medium })
+      : client.fetch(allArtworksQuery),
+    client.fetch(mediumTypesQuery),
+  ]);
 
   return (
     <Container className="section-padding">
@@ -26,7 +29,7 @@ export default async function WorksPage({ searchParams }: PageProps) {
         </p>
       </div>
 
-      <ArtworkFilter currentMedium={medium} />
+      <ArtworkFilter currentMedium={medium} mediums={mediums} />
       <ArtworkGrid artworks={artworks} />
     </Container>
   );

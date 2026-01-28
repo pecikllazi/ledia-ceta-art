@@ -64,6 +64,14 @@ export const artworksByMediumQuery = groq`
   }
 `;
 
+export const mediumTypesQuery = groq`
+  *[_type == "mediumType"] | order(order asc) {
+    _id,
+    name,
+    slug
+  }
+`;
+
 // Exhibitions
 export const allExhibitionsQuery = groq`
   *[_type == "exhibition"] | order(startDate desc) {
