@@ -18,7 +18,7 @@ export default function AboutPage() {
             priority
           />
           {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/60 via-sea-dark/40 to-sea-deep/70"></div>
         </div>
 
         {/* Content */}
@@ -54,7 +54,7 @@ export default function AboutPage() {
       {/* Artist Statement */}
       <Container className="py-20 md:py-32">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center text-gradient-sea">
             The Sea as Spiritual Anchor
           </h2>
           <div className="prose prose-lg max-w-none text-text-secondary space-y-6">
@@ -73,34 +73,40 @@ export default function AboutPage() {
       </Container>
 
       {/* Philosophy Cards */}
-      <div className="bg-off-white py-20 md:py-32">
+      <div className="bg-gradient-to-br from-sea-foam via-sea-pale/50 to-sea-foam py-20 md:py-32">
         <Container>
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center text-sea-deep">
               Artistic Philosophy
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-sea-deep text-4xl mb-4">🎨</div>
-                <h3 className="text-xl font-serif font-medium mb-4">Traditional Media</h3>
+              <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-light/30">
+                <div className="w-12 h-12 bg-sea-medium/20 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-2xl">🎨</span>
+                </div>
+                <h3 className="text-xl font-serif font-medium mb-4 text-sea-dark">Traditional Media</h3>
                 <p className="text-text-secondary leading-relaxed">
                   The cornerstone of cultural subjectivity. Through painting, watercolours on silk,
                   and mixed media, I maintain connection to artistic heritage.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-sea-deep text-4xl mb-4">✨</div>
-                <h3 className="text-xl font-serif font-medium mb-4">Personal Experience</h3>
+              <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-light/30">
+                <div className="w-12 h-12 bg-sea-medium/20 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-2xl">✨</span>
+                </div>
+                <h3 className="text-xl font-serif font-medium mb-4 text-sea-dark">Personal Experience</h3>
                 <p className="text-text-secondary leading-relaxed">
                   The vital source of creativity. Great cultural visions must be grounded in
                   authentic individual expression.
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-sea-deep text-4xl mb-4">🌊</div>
-                <h3 className="text-xl font-serif font-medium mb-4">Self-Healing</h3>
+              <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-light/30">
+                <div className="w-12 h-12 bg-sea-medium/20 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-2xl">🌊</span>
+                </div>
+                <h3 className="text-xl font-serif font-medium mb-4 text-sea-dark">Self-Healing</h3>
                 <p className="text-text-secondary leading-relaxed">
                   The core value of art, enabling it to transcend boundaries and foster
                   mutual understanding amongst civilisations.

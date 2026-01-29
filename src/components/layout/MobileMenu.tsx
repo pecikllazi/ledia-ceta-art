@@ -22,7 +22,7 @@ export default function MobileMenu() {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-text-primary hover:text-sea-deep"
+        className="p-2 text-white hover:text-sea-light transition-colors"
         aria-label="Toggle menu"
       >
         <svg
@@ -50,7 +50,7 @@ export default function MobileMenu() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-t border-warm-gray shadow-lg">
+        <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-sea-deep to-sea-dark border-t border-sea-medium/30 shadow-lg">
           <nav className="container-custom py-4">
             {links.map((link) => {
               const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
@@ -62,8 +62,8 @@ export default function MobileMenu() {
                   className={clsx(
                     'block py-3 px-4 text-sm font-medium transition-colors rounded border-l-4',
                     isActive
-                      ? 'text-sea-deep bg-warm-gray border-sea-deep'
-                      : 'text-text-primary border-transparent hover:text-sea-deep hover:bg-off-white'
+                      ? 'text-sea-light bg-sea-medium/30 border-sea-light'
+                      : 'text-white/80 border-transparent hover:text-white hover:bg-sea-medium/20'
                   )}
                 >
                   {link.label}

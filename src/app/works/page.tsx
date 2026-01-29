@@ -21,16 +21,27 @@ export default async function WorksPage({ searchParams }: PageProps) {
   ]);
 
   return (
-    <Container className="section-padding">
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-serif font-light mb-4">Works</h1>
-        <p className="text-text-secondary">
-          Explore the collection of paintings, mixed media, and installations.
-        </p>
+    <div>
+      {/* Page Header */}
+      <div className="bg-gradient-to-r from-sea-deep via-sea-dark to-sea-medium py-16 md:py-24">
+        <Container>
+          <p className="text-sea-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
+            Gallery
+          </p>
+          <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">
+            Works
+          </h1>
+          <p className="text-white/70 text-lg max-w-2xl">
+            Explore the collection of paintings capturing the spirit of the sea,
+            coastal landscapes, and the beauty of nature.
+          </p>
+        </Container>
       </div>
 
-      <ArtworkFilter currentMedium={medium} mediums={mediums} />
-      <ArtworkGrid artworks={artworks} />
-    </Container>
+      <Container className="section-padding">
+        <ArtworkFilter currentMedium={medium} mediums={mediums} />
+        <ArtworkGrid artworks={artworks} />
+      </Container>
+    </div>
   );
 }

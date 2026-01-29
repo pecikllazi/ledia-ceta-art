@@ -21,30 +21,42 @@ export default async function ExhibitionsPage() {
   const years = Object.keys(groupedByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <Container className="section-padding">
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-serif font-light mb-4">
-          Exhibitions
-        </h1>
-        <p className="text-text-secondary">
-          A chronicle of shows, biennales, and collaborative projects.
-        </p>
+    <div>
+      {/* Page Header */}
+      <div className="bg-gradient-to-r from-sea-medium via-sea-dark to-sea-deep py-16 md:py-24">
+        <Container>
+          <p className="text-sea-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
+            Exhibitions & Events
+          </p>
+          <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">
+            Exhibitions
+          </h1>
+          <p className="text-white/70 text-lg max-w-2xl">
+            A chronicle of shows, biennales, and collaborative projects
+            around the world.
+          </p>
+        </Container>
       </div>
 
-      <div className="space-y-12">
-        {years.map((year) => (
-          <div key={year}>
-            <h2 className="text-3xl font-serif font-light mb-6 pb-2 border-b-2 border-sea-deep">
-              {year}
-            </h2>
-            <div className="space-y-6">
-              {groupedByYear[year].map((exhibition: any) => (
-                <ExhibitionCard key={exhibition._id} exhibition={exhibition} />
-              ))}
+      <Container className="section-padding">
+        <div className="space-y-16">
+          {years.map((year) => (
+            <div key={year}>
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="text-4xl font-serif font-light text-sea-deep">
+                  {year}
+                </h2>
+                <div className="flex-1 h-0.5 bg-gradient-to-r from-sea-light to-transparent"></div>
+              </div>
+              <div className="space-y-6">
+                {groupedByYear[year].map((exhibition: any) => (
+                  <ExhibitionCard key={exhibition._id} exhibition={exhibition} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </Container>
+          ))}
+        </div>
+      </Container>
+    </div>
   );
 }

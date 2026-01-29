@@ -16,38 +16,35 @@ interface ArtworkFilterProps {
 
 export default function ArtworkFilter({ currentMedium, mediums }: ArtworkFilterProps) {
   return (
-    <div className="flex flex-wrap gap-3 mb-8">
-      <Link
-        href="/works"
-        className={clsx(
-          'px-4 py-2 rounded-full text-sm font-medium transition-all',
-          !currentMedium
-            ? 'bg-sea-deep text-white'
-            : 'bg-warm-gray text-text-primary hover:bg-cool-gray'
-        )}
-      >
-        All
-      </Link>
-
-      {mediums.map((medium) => {
-        const isActive = currentMedium === medium.slug.current;
-        const href = `/works?medium=${encodeURIComponent(medium.slug.current)}`;
-
-        return (
+    <div className="mb-10">
+      <p className="text-sea-medium text-sm uppercase tracking-wider mb-4 font-medium">Filter by Medium</p>
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href="/works"
+          className={clsx(
+            'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border-2',
+            !currentMedium
+              ? 'bg-sea-medium text-white border-sea-medium shadow-sea'
+              : 'bg-sea-pale/30 text-sea-dark border-sea-light/50 hover:bg-sea-light/30 hover:border-sea-light'
+          )}
+        >
+          All Works
+        </Link>
+        {mediums.map((medium) => (
           <Link
             key={medium._id}
-            href={href}
+            href={`/works?medium=${medium.slug.current}`}
             className={clsx(
-              'px-4 py-2 rounded-full text-sm font-medium transition-all',
-              isActive
-                ? 'bg-sea-deep text-white'
-                : 'bg-warm-gray text-text-primary hover:bg-cool-gray'
+              'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border-2',
+              currentMedium === medium.slug.current
+                ? 'bg-sea-medium text-white border-sea-medium shadow-sea'
+                : 'bg-sea-pale/30 text-sea-dark border-sea-light/50 hover:bg-sea-light/30 hover:border-sea-light'
             )}
           >
             {medium.name}
           </Link>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 }

@@ -4,7 +4,8 @@
 
 @layer base {
   body {
-    background-color: #F8FAFC;
+    background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FA 50%, #E8F4F8 100%);
+    background-attachment: fixed;
     color: #0F172A;
     font-family: 'Libre Franklin', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -27,8 +27,8 @@ export default function Navigation() {
             className={clsx(
               'text-sm font-medium transition-all pb-1 border-b-2',
               isActive
-                ? 'text-sea-deep border-sea-deep'
-                : 'text-text-primary border-transparent hover:text-sea-deep hover:border-sea-light'
+                ? 'text-sea-light border-sea-light'
+                : 'text-white/80 border-transparent hover:text-white hover:border-sea-light/50'
             )}
           >
             {link.label}
