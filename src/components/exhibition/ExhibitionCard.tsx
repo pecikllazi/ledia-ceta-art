@@ -33,10 +33,10 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
   return (
     <Link href={`/exhibitions/${exhibition.slug.current}`} className="group block">
       <div className="bg-cream overflow-hidden border border-cloud hover:border-silver transition-colors duration-300">
-        <div className="grid md:grid-cols-[240px,1fr] gap-6">
+        <div className="grid md:grid-cols-[280px,1fr]">
           {/* Image */}
           {exhibition.posterImage && (
-            <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+            <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[300px] overflow-hidden border-b md:border-b-0 md:border-r border-ink/20">
               <SanityImage
                 image={exhibition.posterImage}
                 alt={exhibition.title}
@@ -46,11 +46,11 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
             </div>
           )}
 
-          {/* Content */}
-          <div className="p-6 md:py-8 md:pr-8 md:pl-0 flex flex-col justify-center">
+          {/* Content - proper padding on all sides */}
+          <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
             {/* Type Badge */}
             {exhibition.type && (
-              <span className="inline-block self-start px-3 py-1 text-xs tracking-wider uppercase text-stone border border-cloud mb-4">
+              <span className="inline-block self-start px-3 py-1 text-xs tracking-wider uppercase text-stone border border-ink/20 mb-4">
                 {exhibition.type}
               </span>
             )}

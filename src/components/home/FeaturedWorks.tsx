@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import SanityImage from '../shared/SanityImage';
 import Container from '../ui/Container';
@@ -20,64 +21,105 @@ interface FeaturedWorksProps {
   artworks: Artwork[];
 }
 
+// Gallery layout pattern - alternating sizes for visual interest
+const getLayoutClass = (index: number) => {
+  const patterns = [
+    'col-span-2 row-span-2', // Large square
+    'col-span-1 row-span-2', // Tall portrait
+    'col-span-1 row-span-1', // Small square
+    'col-span-1 row-span-1', // Small square
+    'col-span-1 row-span-2', // Tall portrait
+    'col-span-2 row-span-1', // Wide landscape
+    'col-span-1 row-span-1', // Small square
+    'col-span-1 row-span-1', // Small square
+  ];
+  return patterns[index % patterns.length];
+};
+
+const getAspectClass = (index: number) => {
+  const patterns = [
+    'aspect-square',      // Large square
+    'aspect-[3/4]',       // Tall portrait
+    'aspect-square',      // Small square
+    'aspect-square',      // Small square
+    'aspect-[3/4]',       // Tall portrait
+    'aspect-[16/9]',      // Wide landscape
+    'aspect-square',      // Small square
+    'aspect-square',      // Small square
+  ];
+  return patterns[index % patterns.length];
+};
+
 export default function FeaturedWorks({ artworks }: FeaturedWorksProps) {
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    const items = galleryRef.current?.querySelectorAll('.gallery-item');
+    items?.forEach((item, index) => {
+      (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+      observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, [artworks]);
+
   if (!artworks || artworks.length === 0) return null;
 
   return (
-    <section className="relative section-padding bg-paper">
-      <Container className="relative z-10">
+    <section className="relative py-16 md:py-24 bg-paper">
+      <Container>
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <span className="inline-block text-xs tracking-[0.3em] uppercase text-stone mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <span className="inline-block text-xs tracking-[0.3em] uppercase text-stone mb-4">
             Gallery
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-6 text-ink">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-4 text-ink">
             Featured Works
           </h2>
-          <p className="text-warm-gray text-lg max-w-2xl mx-auto leading-relaxed">
-            A curated selection of paintings capturing the essence of the sea
-            and the beauty of coastal landscapes
+          <p className="text-warm-gray text-lg max-w-xl mx-auto leading-relaxed">
+            A curated selection capturing the essence of the sea
           </p>
         </div>
 
-        {/* Artwork Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {artworks.map((artwork, index) => (
+        {/* Masonry Gallery Grid */}
+        <div
+          ref={galleryRef}
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 auto-rows-[150px] md:auto-rows-[180px] lg:auto-rows-[200px]"
+        >
+          {artworks.slice(0, 8).map((artwork, index) => (
             <Link
               key={artwork._id}
               href={`/works/${artwork.slug.current}`}
-              className={`group block ${index === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+              className={`gallery-item group block opacity-0 translate-y-8 transition-all duration-700 ease-out ${getLayoutClass(index)}`}
             >
-              {/* Card */}
-              <div className="relative overflow-hidden bg-cream h-full">
-                {/* Image Container */}
-                <div className={`relative ${index === 0 ? 'aspect-[4/3] md:aspect-[16/12]' : 'aspect-[4/5]'} overflow-hidden`}>
-                  <SanityImage
-                    image={artwork.mainImage}
-                    alt={artwork.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative h-full w-full overflow-hidden border border-ink/80 bg-ink/5">
+                <SanityImage
+                  image={artwork.mainImage}
+                  alt={artwork.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Title */}
-                  <h3 className={`font-serif font-normal mb-2 text-ink group-hover:text-ocean transition-colors duration-300 ${
-                    index === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'
-                  }`}>
-                    {artwork.title}
-                  </h3>
-
-                  {/* Meta */}
-                  <div className="flex items-center gap-3 text-sm text-stone">
-                    <span>{artwork.year}</span>
-                    {artwork.medium && (
-                      <>
-                        <span className="w-1 h-px bg-silver"></span>
-                        <span>{artwork.medium.name}</span>
-                      </>
-                    )}
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/40 transition-all duration-500 flex items-end">
+                  <div className="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="font-serif text-lg text-paper mb-1">
+                      {artwork.title}
+                    </h3>
+                    <p className="text-sm text-paper/70">
+                      {artwork.year}{artwork.medium && ` · ${artwork.medium.name}`}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -93,10 +135,13 @@ export default function FeaturedWorks({ artworks }: FeaturedWorksProps) {
         </div>
       </Container>
 
-      {/* Bottom Divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <div className="divider"></div>
-      </div>
+      {/* CSS for scroll animations */}
+      <style jsx global>{`
+        .gallery-item.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   );
 }
