@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import SanityImage from '../shared/SanityImage';
 
@@ -29,40 +31,77 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
   };
 
   return (
-    <Link href={`/exhibitions/${exhibition.slug.current}`} className="group">
-      <div className="grid md:grid-cols-[200px,1fr] gap-6 pb-6 border-b border-sea-medium/30">
-        {exhibition.posterImage && (
-          <div className="relative aspect-[4/5] bg-sea-dark overflow-hidden rounded-lg border border-sea-medium/30">
-            <SanityImage
-              image={exhibition.posterImage}
-              alt={exhibition.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        )}
+    <Link href={`/exhibitions/${exhibition.slug.current}`} className="group block">
+      <div className="glass-card rounded-2xl overflow-hidden card-hover">
+        <div className="grid md:grid-cols-[240px,1fr] gap-6">
+          {/* Image */}
+          {exhibition.posterImage && (
+            <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden">
+              <SanityImage
+                image={exhibition.posterImage}
+                alt={exhibition.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/60 via-transparent to-transparent md:bg-gradient-to-r"></div>
+            </div>
+          )}
 
-        <div>
-          {exhibition.type && (
-            <span className="inline-block text-xs uppercase tracking-wider text-sea-light mb-2">
-              {exhibition.type}
-            </span>
-          )}
-          <h3 className="text-2xl font-serif font-medium mb-2 text-white group-hover:text-sea-light transition-colors">
-            {exhibition.title}
-          </h3>
-          {exhibition.theme && (
-            <p className="text-sea-pale/80 mb-3">{exhibition.theme}</p>
-          )}
-          <div className="text-sm text-sea-pale/70 space-y-1">
-            <p>
-              {formatDate(exhibition.startDate)}
-              {exhibition.endDate && ` – ${formatDate(exhibition.endDate)}`}
-            </p>
-            {exhibition.venue && <p>{exhibition.venue}</p>}
-            <p>
-              {exhibition.city}, {exhibition.country}
-            </p>
+          {/* Content */}
+          <div className="p-6 md:py-8 md:pr-8 md:pl-0 flex flex-col justify-center">
+            {/* Type Badge */}
+            {exhibition.type && (
+              <span className="inline-block self-start px-3 py-1 text-xs tracking-wider uppercase text-biolum-cyan border border-biolum-cyan/30 rounded-full mb-4">
+                {exhibition.type}
+              </span>
+            )}
+
+            {/* Title */}
+            <h3 className="text-2xl md:text-3xl font-display font-light mb-2 text-pearl group-hover:text-biolum-cyan transition-colors duration-300">
+              {exhibition.title}
+            </h3>
+
+            {/* Theme */}
+            {exhibition.theme && (
+              <p className="text-pearl-muted mb-4 italic">"{exhibition.theme}"</p>
+            )}
+
+            {/* Details */}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-pearl-muted">
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-biolum-cyan/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                {formatDate(exhibition.startDate)}
+                {exhibition.endDate && ` – ${formatDate(exhibition.endDate)}`}
+              </span>
+
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-biolum-cyan/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                {exhibition.city}, {exhibition.country}
+              </span>
+            </div>
+
+            {/* Venue */}
+            {exhibition.venue && (
+              <p className="mt-3 text-sm text-pearl-subtle">{exhibition.venue}</p>
+            )}
+
+            {/* View Link */}
+            <div className="mt-6 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+              <span className="inline-flex items-center gap-2 text-sm text-biolum-cyan">
+                View Details
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </div>

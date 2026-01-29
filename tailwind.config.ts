@@ -9,39 +9,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Deep ocean blue-green palette (teal undertones)
-        'sea-deep': '#0A1F2E',
-        'sea-dark': '#0F3041',
-        'sea-medium': '#1A5566',
-        'sea-bright': '#1E7B7B',
-        'sea-light': '#4DB6AC',
-        'sea-pale': '#80CBC4',
-        'sea-foam': '#B2DFDB',
+        // Deep Ocean Palette
+        ocean: {
+          abyss: '#020817',
+          deep: '#0a1628',
+          midnight: '#0f2139',
+          twilight: '#1a365d',
+          current: '#234e82',
+        },
 
-        // Accent colors
-        'coral': '#FF6B6B',
-        'sand': '#F4D35E',
-        'sunset': '#FF8C42',
+        // Bioluminescent Accents
+        biolum: {
+          cyan: '#22d3ee',
+          teal: '#2dd4bf',
+          blue: '#60a5fa',
+        },
 
-        // Neutral colors
-        'off-white': '#F0F5F4',
-        black: '#0A1F2E',
-        charcoal: '#1A2F3A',
-        'warm-gray': '#D4E0DE',
-        'cool-gray': '#B8C9C5',
-        'text-primary': '#0A1F2E',
-        'text-secondary': '#3D5A5A',
-        'text-muted': '#6B8A8A',
+        // Pearl & Iridescent
+        pearl: {
+          DEFAULT: '#f0f9ff',
+          soft: 'rgba(240, 249, 255, 0.9)',
+          muted: 'rgba(240, 249, 255, 0.6)',
+          subtle: 'rgba(240, 249, 255, 0.3)',
+        },
+
+        // Coral Accents
+        coral: {
+          warm: '#fb7185',
+          soft: '#fda4af',
+        },
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'Times New Roman', 'serif'],
-        sans: ['Libre Franklin', 'Helvetica Neue', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 1s ease-out',
-        'fade-in-up': 'fadeInUp 0.8s ease-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'float': 'float 6s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        float: 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+        shimmer: 'shimmer 3s ease-in-out infinite',
+        rise: 'rise 8s ease-in infinite',
       },
       keyframes: {
         fadeIn: {
@@ -49,25 +57,41 @@ const config: Config = {
           '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(100%)' },
-          '100%': { transform: 'translateY(0)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(34, 211, 238, 0.2)' },
+          '50%': { boxShadow: '0 0 40px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.2)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '200% 200%' },
+          '100%': { backgroundPosition: '-200% -200%' },
+        },
+        rise: {
+          '0%': { opacity: '0', transform: 'translateY(100%) scale(0.5)' },
+          '10%': { opacity: '0.6' },
+          '90%': { opacity: '0.6' },
+          '100%': { opacity: '0', transform: 'translateY(-100vh) scale(1)' },
         },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'sea-gradient': 'linear-gradient(135deg, #0A1F2E 0%, #1A5566 50%, #4DB6AC 100%)',
+        'ocean-gradient': 'linear-gradient(180deg, #020817 0%, #0f2139 50%, #020817 100%)',
+        'glass-gradient': 'linear-gradient(135deg, rgba(15, 33, 57, 0.8) 0%, rgba(26, 54, 93, 0.6) 100%)',
       },
       boxShadow: {
-        'sea': '0 10px 40px -10px rgba(26, 85, 102, 0.3)',
-        'sea-lg': '0 20px 60px -15px rgba(26, 85, 102, 0.4)',
+        'glow-cyan': '0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(34, 211, 238, 0.15)',
+        'glow-teal': '0 0 20px rgba(45, 212, 191, 0.3), 0 0 40px rgba(45, 212, 191, 0.15)',
+        glass: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+        'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+      },
+      backdropBlur: {
+        glass: '20px',
       },
     },
   },

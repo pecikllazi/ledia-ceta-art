@@ -16,16 +16,16 @@ interface ArtworkFilterProps {
 
 export default function ArtworkFilter({ currentMedium, mediums }: ArtworkFilterProps) {
   return (
-    <div className="mb-10">
-      <p className="text-sea-light text-sm uppercase tracking-wider mb-4 font-medium">Filter by Medium</p>
+    <div className="mb-12">
+      <p className="text-sm text-pearl-muted uppercase tracking-widest mb-4">Filter by Medium</p>
       <div className="flex flex-wrap gap-3">
         <Link
           href="/works"
           className={clsx(
-            'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border-2',
+            'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border',
             !currentMedium
-              ? 'bg-sea-bright text-white border-sea-bright shadow-sea'
-              : 'bg-sea-dark/50 text-sea-pale border-sea-medium/50 hover:bg-sea-medium/30 hover:border-sea-light'
+              ? 'bg-biolum-cyan/20 text-biolum-cyan border-biolum-cyan/50'
+              : 'bg-transparent text-pearl-muted border-pearl-subtle/30 hover:text-pearl hover:border-pearl-muted'
           )}
         >
           All Works
@@ -35,10 +35,10 @@ export default function ArtworkFilter({ currentMedium, mediums }: ArtworkFilterP
             key={medium._id}
             href={`/works?medium=${medium.slug.current}`}
             className={clsx(
-              'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border-2',
+              'px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border',
               currentMedium === medium.slug.current
-                ? 'bg-sea-bright text-white border-sea-bright shadow-sea'
-                : 'bg-sea-dark/50 text-sea-pale border-sea-medium/50 hover:bg-sea-medium/30 hover:border-sea-light'
+                ? 'bg-biolum-cyan/20 text-biolum-cyan border-biolum-cyan/50'
+                : 'bg-transparent text-pearl-muted border-pearl-subtle/30 hover:text-pearl hover:border-pearl-muted'
             )}
           >
             {medium.name}

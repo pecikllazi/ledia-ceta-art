@@ -5,366 +5,225 @@ import Button from '@/components/ui/Button';
 
 export default function AboutPage() {
   return (
-    <div>
-      {/* Hero Section with Background */}
-      <div className="relative min-h-[600px] flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/aboutmevisual.jpg"
-            alt="Underwater sea painting"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/60 via-sea-dark/40 to-sea-deep/70"></div>
+    <div className="min-h-screen pt-24">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-biolum-cyan/5 rounded-full blur-[200px]"></div>
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-biolum-teal/5 rounded-full blur-[150px]"></div>
         </div>
 
-        {/* Content */}
-        <Container className="section-padding relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-sea-light font-medium mb-3 tracking-wide uppercase text-sm">
-                Visual Artist
-              </p>
-              <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 leading-tight text-white">
-                Ledia Çeta
+        <Container className="relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden glass-card">
+                <Image
+                  src="/aboutmevisual.jpg"
+                  alt="Ledia Çeta - Visual Artist"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/60 via-transparent to-transparent"></div>
+              </div>
+              {/* Floating accent */}
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl glass-card flex items-center justify-center">
+                <span className="text-4xl font-display text-biolum-cyan">30+</span>
+                <span className="text-xs text-pearl-muted ml-2">Years of<br/>Art</span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <span className="inline-block px-4 py-2 text-xs tracking-[0.3em] uppercase text-biolum-cyan/80 border border-biolum-cyan/20 rounded-full backdrop-blur-sm mb-6">
+                About the Artist
+              </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6">
+                <span className="text-pearl">Ledia </span>
+                <span className="text-gradient-ocean">Çeta</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-xl text-pearl-muted leading-relaxed mb-8">
                 An Albanian painter capturing the spirit of the sea through three decades
                 of artistic exploration across continents.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-4">
                 <Button href="/works" variant="primary">
-                  View Works
+                  View Collection
                 </Button>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-white text-white hover:bg-black hover:text-white hover:border-black"
-                >
+                <Button href="/contact" variant="outline">
                   Get in Touch
-                </Link>
+                </Button>
               </div>
             </div>
           </div>
         </Container>
-      </div>
+      </section>
 
       {/* Artist Statement */}
-      <Container className="py-20 md:py-32">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center text-gradient-sea">
-            The Sea as Spiritual Anchor
-          </h2>
-          <div className="prose prose-lg max-w-none space-y-6">
-            <p className="text-lg md:text-xl font-light leading-relaxed text-center text-sea-pale">
-              As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
-              accompanying my husband across numerous countries, witnessing the splendour of diverse
-              civilisations and gaining firsthand insight into contemporary art.
-            </p>
-            <p className="text-lg md:text-xl font-light leading-relaxed text-center text-sea-pale">
-              Amid this constant movement, <span className="text-sea-light font-medium">the sea of Albania has remained
-              my spiritual anchor.</span> I depict the sea with the stroke of the spatula – a practice
-              that brings me profound emotional healing.
-            </p>
+      <section className="relative section-padding">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-light mb-12">
+              <span className="text-pearl">The Sea as </span>
+              <span className="text-gradient-ocean">Spiritual Anchor</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-lg md:text-xl text-pearl-muted leading-relaxed">
+                As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
+                accompanying my husband across numerous countries, witnessing the splendour of diverse
+                civilisations and gaining firsthand insight into contemporary art.
+              </p>
+              <p className="text-lg md:text-xl text-pearl-muted leading-relaxed">
+                Amid this constant movement, <span className="text-biolum-cyan">the sea of Albania has remained
+                my spiritual anchor.</span> I depict the sea with the stroke of the spatula — a practice
+                that brings me profound emotional healing.
+              </p>
+            </div>
           </div>
+        </Container>
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="divider-glow"></div>
         </div>
-      </Container>
+      </section>
 
       {/* Philosophy Cards */}
-      <div className="bg-gradient-to-br from-sea-dark via-sea-medium/30 to-sea-dark py-20 md:py-32">
+      <section className="section-padding">
         <Container>
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center text-sea-light">
-              Artistic Philosophy
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              <span className="text-pearl">Artistic </span>
+              <span className="text-gradient-ocean">Philosophy</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-sea-deep/60 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-medium/50">
-                <div className="w-12 h-12 bg-sea-medium/30 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">🎨</span>
-                </div>
-                <h3 className="text-xl font-serif font-medium mb-4 text-sea-light">Traditional Media</h3>
-                <p className="text-sea-pale/80 leading-relaxed">
-                  The cornerstone of cultural subjectivity. Through painting, watercolours on silk,
-                  and mixed media, I maintain connection to artistic heritage.
-                </p>
-              </div>
+          </div>
 
-              <div className="bg-sea-deep/60 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-medium/50">
-                <div className="w-12 h-12 bg-sea-medium/30 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">✨</span>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Traditional Media',
+                description: 'The cornerstone of cultural subjectivity. Through painting, watercolours on silk, and mixed media, I maintain connection to artistic heritage.',
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Personal Experience',
+                description: 'The vital source of creativity. Great cultural visions must be grounded in authentic individual expression.',
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Self-Healing',
+                description: 'The core value of art, enabling it to transcend boundaries and foster mutual understanding amongst civilisations.',
+                icon: (
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                ),
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="glass-card rounded-2xl p-8 card-hover"
+              >
+                <div className="w-14 h-14 rounded-xl bg-biolum-cyan/10 flex items-center justify-center text-biolum-cyan mb-6">
+                  {item.icon}
                 </div>
-                <h3 className="text-xl font-serif font-medium mb-4 text-sea-light">Personal Experience</h3>
-                <p className="text-sea-pale/80 leading-relaxed">
-                  The vital source of creativity. Great cultural visions must be grounded in
-                  authentic individual expression.
-                </p>
+                <h3 className="text-xl font-display font-medium text-pearl mb-4">{item.title}</h3>
+                <p className="text-pearl-muted leading-relaxed">{item.description}</p>
               </div>
-
-              <div className="bg-sea-deep/60 backdrop-blur-sm p-8 rounded-lg shadow-sea hover:shadow-sea-lg transition-all duration-300 border border-sea-medium/50">
-                <div className="w-12 h-12 bg-sea-medium/30 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">🌊</span>
-                </div>
-                <h3 className="text-xl font-serif font-medium mb-4 text-sea-light">Self-Healing</h3>
-                <p className="text-sea-pale/80 leading-relaxed">
-                  The core value of art, enabling it to transcend boundaries and foster
-                  mutual understanding amongst civilisations.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </Container>
-      </div>
+      </section>
 
       {/* Quote Section */}
-      <Container className="py-20 md:py-32">
-        <div className="max-w-4xl mx-auto">
-          <blockquote className="relative">
-            <div className="text-sea-light text-6xl md:text-8xl absolute -top-8 -left-4 md:-left-8 opacity-30 font-serif">
-              "
-            </div>
-            <p className="text-2xl md:text-3xl font-serif font-light text-white leading-relaxed mb-8 relative z-10">
-              My hometown is nestled by the Adriatic Sea, where crystal-clear waters kiss the reefs
-              and fishing boats sway gently on the shimmering waves. The ocean is the very inspiration
-              behind my creations.
-            </p>
-            <footer className="text-sea-pale/70 text-sm border-t border-sea-medium/50 pt-4">
-              Interview with Xinhua News Agency, December 2025
-            </footer>
-          </blockquote>
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-biolum-cyan/5 rounded-full blur-[200px]"></div>
         </div>
-      </Container>
 
-      {/* Recent Highlights - Featured Exhibitions */}
-      <div className="bg-gradient-to-b from-sea-dark to-sea-deep py-20 md:py-32">
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <blockquote className="relative">
+              <div className="text-biolum-cyan/20 text-9xl absolute -top-16 left-1/2 -translate-x-1/2 font-display">"</div>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-display font-light text-pearl leading-relaxed mb-8 relative z-10">
+                My hometown is nestled by the Adriatic Sea, where crystal-clear waters kiss the reefs
+                and fishing boats sway gently on the shimmering waves. The ocean is the very inspiration
+                behind my creations.
+              </p>
+              <footer className="text-pearl-muted text-sm">
+                Interview with Xinhua News Agency, December 2025
+              </footer>
+            </blockquote>
+          </div>
+        </Container>
+      </section>
+
+      {/* Timeline */}
+      <section className="section-padding">
         <Container>
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-4 text-center text-white">
-              Recent Highlights
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              <span className="text-pearl">Artistic </span>
+              <span className="text-gradient-ocean">Journey</span>
             </h2>
-            <p className="text-center text-sea-pale/70 mb-16 text-lg">
-              Participation in 7 international exhibitions during 2025
-            </p>
+          </div>
 
-            <div className="space-y-12">
-              {/* Beijing Biennale - Featured */}
-              <Link href="/exhibitions/beijing-biennale-2025" className="block bg-sea-deep/80 rounded-lg shadow-sea overflow-hidden hover:shadow-sea-lg transition-shadow border border-sea-medium/40">
-                <div className="p-8 md:p-12">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-sea-bright text-white text-xs font-medium rounded-full mb-3">
-                        International Biennale
-                      </span>
-                      <h3 className="text-2xl md:text-3xl font-serif font-medium mb-2 text-white group-hover:text-sea-light transition-colors">
-                        The 10th Beijing International Art Biennale
-                      </h3>
-                      <p className="text-sea-light font-medium italic">"Coexistence"</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm text-sea-pale/60">December 2025 – January 2026</p>
-                      <p className="text-sea-pale">Beijing, China</p>
-                    </div>
+          <div className="max-w-3xl mx-auto">
+            {[
+              { period: '2021 – Present', location: 'Beijing, China', description: 'Participation at various exhibitions throughout China. Paintings on canvas and silk.' },
+              { period: '2019 – 2021', location: 'Tirana, Albania', description: 'Paintings on silk, porcelain and canvas. Participation in various art fairs.' },
+              { period: '2016 – 2019', location: 'Sofia, Bulgaria', description: 'Studio Arts and Soul. Paintings on silk and porcelain, participation in various fairs.' },
+              { period: '2010 – 2016', location: 'Tirana, Albania', description: 'Paintings on porcelain and canvas. Participation in various art fairs.' },
+              { period: '2009 – 2010', location: 'Ankara, Turkey', description: 'Beginning as a full-time painter. Paintings on glazed porcelain and canvas.' },
+            ].map((item, index) => (
+              <div key={index} className="relative pl-8 pb-12 last:pb-0">
+                {/* Timeline line */}
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-biolum-cyan via-biolum-teal to-transparent"></div>
+                {/* Timeline dot */}
+                <div className="absolute left-0 top-1 w-2 h-2 -translate-x-1/2 rounded-full bg-biolum-cyan"></div>
+
+                <div className="glass-card rounded-xl p-6">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <h3 className="text-lg font-display font-medium text-biolum-cyan">{item.period}</h3>
+                    <span className="text-sm text-pearl-muted">{item.location}</span>
                   </div>
-                  <p className="text-sea-pale/80 leading-relaxed mb-4">
-                    The Beijing Biennale continuously explores innovative concepts in global artistic creation,
-                    discovering and promoting outstanding new artists and exemplary artworks from five continents worldwide.
-                  </p>
-                  <p className="text-sm text-sea-pale/60">
-                    Participating artwork: <span className="italic">Under the Sea</span> — Acrylic on Canvas
-                  </p>
+                  <p className="text-pearl-muted">{item.description}</p>
                 </div>
-              </Link>
-
-              {/* Conference */}
-              <Link href="/exhibitions/biab-conference-2025" className="block bg-sea-deep/80 rounded-lg shadow-sea overflow-hidden hover:shadow-sea-lg transition-shadow border border-sea-medium/40">
-                <div className="p-8 md:p-10">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-sea-medium text-white text-xs font-medium rounded-full mb-3">
-                        Roundtable Speaker
-                      </span>
-                      <h3 className="text-xl md:text-2xl font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">
-                        International Art Conference of BIAB
-                      </h3>
-                      <p className="text-sea-light font-medium italic text-sm">
-                        "Mutual Learning Among Civilizations and Artistic Innovation"
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm text-sea-pale/60">December 29–30, 2025</p>
-                      <p className="text-sea-pale">Beijing, China</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-sea-pale/60">
-                    Session: Fluid Contemporaneity and the Construction of Cultural Subjectivity
-                  </p>
-                </div>
-              </Link>
-
-              {/* Other exhibitions in compact grid */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/exhibitions/everything-has-a-spirit-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">Dec 9–10, 2025 • Guangzhou</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">Everything Has a Spirit</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">International Environmental Art Exhibition</p>
-                  <p className="text-xs text-sea-pale/60 italic">The Sea Before the Storm</p>
-                </Link>
-
-                <Link href="/exhibitions/endless-river-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">Oct 13–27, 2025 • Beijing</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">The Endless River</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">Contemporary Artists Invitational</p>
-                  <p className="text-xs text-sea-pale/60 italic">Fire — Mixed Media</p>
-                </Link>
-
-                <Link href="/exhibitions/taiyuan-contemporary-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">Oct 2025 – Mar 2026 • Taiyuan</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">Taiyuan Contemporary</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">International Contemporary Art Exhibition</p>
-                  <p className="text-xs text-sea-pale/60 italic">3 works on silk</p>
-                </Link>
-
-                <Link href="/exhibitions/melody-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">Jun 28 – Aug 17, 2025 • Shenzhen</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">Melody</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">Contemporary Art Exhibition</p>
-                  <p className="text-xs text-sea-pale/60 italic">16 paintings</p>
-                </Link>
-
-                <Link href="/exhibitions/symphony-of-civilizations-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">May 29 – Jun 28, 2025 • Beijing</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">Symphony of Civilizations</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">Chinese & Albanian Cultural Heritage</p>
-                  <p className="text-xs text-sea-pale/60 italic">10 paintings</p>
-                </Link>
-
-                <Link href="/exhibitions/dragons-and-snakes-2025" className="bg-sea-deep/60 rounded-lg shadow-sea p-6 hover:shadow-sea-lg transition-shadow border border-sea-medium/30">
-                  <p className="text-xs text-sea-pale/60 mb-2">Mar 1–30, 2025 • Hebei</p>
-                  <h4 className="text-lg font-serif font-medium mb-2 text-white hover:text-sea-light transition-colors">Dragons and Snakes</h4>
-                  <p className="text-sm text-sea-pale/80 mb-2">International Contemporary Art Exhibition</p>
-                  <p className="text-xs text-sea-pale/60 italic">At the Seaside — Installation</p>
-                </Link>
               </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding">
+        <Container>
+          <div className="glass-card rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-biolum-cyan/10 rounded-full blur-[100px]"></div>
+
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-display font-light mb-6 text-pearl">
+                Let's Connect
+              </h2>
+              <p className="text-xl text-pearl-muted mb-8 max-w-xl mx-auto">
+                Interested in my work or have a commission in mind?
+              </p>
+              <Button href="/contact" variant="primary" size="lg">
+                Get in Touch
+              </Button>
             </div>
           </div>
         </Container>
-      </div>
-
-      {/* Artistic Journey Timeline */}
-      <Container className="py-20 md:py-32">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-light mb-16 text-center text-white">
-            Artistic Journey
-          </h2>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-sea-medium transform md:-translate-x-1/2"></div>
-
-            {/* Timeline items */}
-            <div className="space-y-12">
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">2021 – Present</h3>
-                  <p className="text-lg text-white mb-2">Beijing, China</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Participation at various exhibitions throughout China. Paintings on canvas and silk.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-light rounded-full transform md:-translate-x-1/2"></div>
-              </div>
-
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">2019 – 2021</h3>
-                  <p className="text-lg text-white mb-2">Tirana, Albania</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Paintings on silk, porcelain and canvas. Participation in various art fairs.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-bright rounded-full transform md:-translate-x-1/2"></div>
-              </div>
-
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">2016 – 2019</h3>
-                  <p className="text-lg text-white mb-2">Sofia, Bulgaria</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Studio Arts and Soul. Paintings on silk and porcelain, participation in various fairs.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-bright rounded-full transform md:-translate-x-1/2"></div>
-              </div>
-
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">2010 – 2016</h3>
-                  <p className="text-lg text-white mb-2">Tirana, Albania</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Paintings on porcelain and canvas. Participation in various art fairs.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-medium rounded-full transform md:-translate-x-1/2"></div>
-              </div>
-
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">2009 – 2010</h3>
-                  <p className="text-lg text-white mb-2">Ankara, Turkey</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Beginning as a full-time painter. Paintings on glazed porcelain and canvas.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-medium rounded-full transform md:-translate-x-1/2"></div>
-              </div>
-
-              <div className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8">
-                <div className="md:text-right md:pr-12">
-                  <h3 className="text-xl font-serif font-medium text-sea-light mb-2">Early Stages</h3>
-                  <p className="text-lg text-white mb-2">Tirana, Albania</p>
-                </div>
-                <div className="md:pl-12">
-                  <p className="text-sea-pale/80">
-                    Work with pencils and replicas. Still life paintings and artistic foundations.
-                  </p>
-                </div>
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-sea-dark rounded-full transform md:-translate-x-1/2 border-2 border-sea-medium"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-
-      {/* Final CTA */}
-      <div className="bg-sea-deep py-20">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-6 text-white">
-              Let's Connect
-            </h2>
-            <p className="text-xl mb-8 text-sea-light">
-              Interested in my work or have a commission in mind?
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md border-2 border-sea-light text-sea-light hover:bg-sea-light hover:text-sea-deep"
-            >
-              Get in Touch
-            </Link>
-          </div>
-        </Container>
-      </div>
+      </section>
     </div>
   );
 }

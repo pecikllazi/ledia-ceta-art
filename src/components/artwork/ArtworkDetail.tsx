@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import SanityImage from '../shared/SanityImage';
 import Container from '../ui/Container';
@@ -51,116 +53,145 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
   };
 
   return (
-    <Container className="section-padding">
-      <div className="grid md:grid-cols-2 gap-12">
-        <div>
-          <div className="relative aspect-[4/5] bg-sea-dark mb-4 rounded-lg overflow-hidden border border-sea-medium/30">
-            <SanityImage
-              image={artwork.mainImage}
-              alt={artwork.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          {artwork.gallery && artwork.gallery.length > 0 && (
-            <div className="grid grid-cols-3 gap-4">
-              {artwork.gallery.map((image, index) => (
-                <div key={index} className="relative aspect-square bg-sea-dark rounded-lg overflow-hidden border border-sea-medium/30">
-                  <SanityImage
-                    image={image}
-                    alt={`${artwork.title} - View ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+    <div className="min-h-screen pt-24">
+      <Container className="section-padding">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Image Section */}
+          <div>
+            {/* Main Image */}
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden glass-card mb-6">
+              <SanityImage
+                image={artwork.mainImage}
+                alt={artwork.title}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
-          )}
-        </div>
 
-        <div>
-          <h1 className="text-4xl font-serif font-light mb-2 text-white">{artwork.title}</h1>
-          {artwork.titleChinese && (
-            <p className="text-2xl text-sea-pale/70 mb-6">{artwork.titleChinese}</p>
-          )}
-
-          <div className="space-y-3 mb-8 pb-8 border-b border-sea-medium/30">
-            <div className="flex justify-between">
-              <span className="text-sea-pale/70">Year</span>
-              <span className="font-medium text-white">{artwork.year}</span>
-            </div>
-            {artwork.medium && (
-              <div className="flex justify-between">
-                <span className="text-sea-pale/70">Medium</span>
-                <span className="font-medium text-white">{artwork.medium.name}</span>
-              </div>
-            )}
-            {artwork.surface && (
-              <div className="flex justify-between">
-                <span className="text-sea-pale/70">Surface</span>
-                <span className="font-medium text-white">{artwork.surface}</span>
-              </div>
-            )}
-            {artwork.dimensions && (
-              <div className="flex justify-between">
-                <span className="text-sea-pale/70">Dimensions</span>
-                <span className="font-medium text-white">{formatDimensions()}</span>
-              </div>
-            )}
-            {artwork.series && (
-              <div className="flex justify-between">
-                <span className="text-sea-pale/70">Series</span>
-                <span className="font-medium text-white">{artwork.series}</span>
-              </div>
-            )}
-          </div>
-
-          {artwork.description && (
-            <div className="mb-8">
-              <h2 className="text-xl font-serif font-medium mb-3 text-sea-light">Description</h2>
-              <p className="text-sea-pale/80 leading-relaxed">{artwork.description}</p>
-            </div>
-          )}
-
-          {artwork.exhibitions && artwork.exhibitions.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xl font-serif font-medium mb-3 text-sea-light">Exhibitions</h2>
-              <ul className="space-y-2">
-                {artwork.exhibitions.map((exhibition) => (
-                  <li key={exhibition._id}>
-                    <Link
-                      href={`/exhibitions/${exhibition.slug.current}`}
-                      className="text-sea-light hover:text-white transition-colors"
-                    >
-                      {exhibition.title} - {exhibition.city} (
-                      {new Date(exhibition.startDate).getFullYear()})
-                    </Link>
-                  </li>
+            {/* Gallery Thumbnails */}
+            {artwork.gallery && artwork.gallery.length > 0 && (
+              <div className="grid grid-cols-4 gap-3">
+                {artwork.gallery.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative aspect-square rounded-lg overflow-hidden glass-card cursor-pointer hover:ring-2 ring-biolum-cyan/50 transition-all"
+                  >
+                    <SanityImage
+                      image={image}
+                      alt={`${artwork.title} - View ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="flex gap-4">
-            {artwork.available && (
-              <Button href="/contact" variant="primary">
-                Inquire About This Work
-              </Button>
+              </div>
             )}
-            <Button href="/works" variant="outline">
-              Back to Works
-            </Button>
           </div>
 
-          {artwork.available && artwork.price && (
-            <p className="mt-4 text-sm text-sea-pale/60">
-              Available for purchase • USD ${artwork.price.toLocaleString()}
-            </p>
-          )}
+          {/* Info Section */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            {/* Back Link */}
+            <Link
+              href="/works"
+              className="inline-flex items-center gap-2 text-sm text-pearl-muted hover:text-biolum-cyan transition-colors mb-8"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Back to Collection
+            </Link>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-display font-light mb-3 text-pearl">
+              {artwork.title}
+            </h1>
+            {artwork.titleChinese && (
+              <p className="text-2xl text-pearl-muted mb-8">{artwork.titleChinese}</p>
+            )}
+
+            {/* Details Card */}
+            <div className="glass-card rounded-2xl p-6 mb-8">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
+                  <span className="text-pearl-muted">Year</span>
+                  <span className="text-pearl font-medium">{artwork.year}</span>
+                </div>
+                {artwork.medium && (
+                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
+                    <span className="text-pearl-muted">Medium</span>
+                    <span className="text-pearl font-medium">{artwork.medium.name}</span>
+                  </div>
+                )}
+                {artwork.surface && (
+                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
+                    <span className="text-pearl-muted">Surface</span>
+                    <span className="text-pearl font-medium">{artwork.surface}</span>
+                  </div>
+                )}
+                {artwork.dimensions && (
+                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
+                    <span className="text-pearl-muted">Dimensions</span>
+                    <span className="text-pearl font-medium">{formatDimensions()}</span>
+                  </div>
+                )}
+                {artwork.series && (
+                  <div className="flex justify-between items-center py-3">
+                    <span className="text-pearl-muted">Series</span>
+                    <span className="text-pearl font-medium">{artwork.series}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Description */}
+            {artwork.description && (
+              <div className="mb-8">
+                <h2 className="text-lg font-display font-medium mb-4 text-biolum-cyan">About This Work</h2>
+                <p className="text-pearl-muted leading-relaxed">{artwork.description}</p>
+              </div>
+            )}
+
+            {/* Exhibitions */}
+            {artwork.exhibitions && artwork.exhibitions.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-lg font-display font-medium mb-4 text-biolum-cyan">Exhibited At</h2>
+                <ul className="space-y-2">
+                  {artwork.exhibitions.map((exhibition) => (
+                    <li key={exhibition._id}>
+                      <Link
+                        href={`/exhibitions/${exhibition.slug.current}`}
+                        className="text-pearl-muted hover:text-biolum-cyan transition-colors"
+                      >
+                        {exhibition.title} — {exhibition.city} ({new Date(exhibition.startDate).getFullYear()})
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              {artwork.available && (
+                <Button href="/contact" variant="primary" size="lg">
+                  Inquire About This Work
+                </Button>
+              )}
+              <Button href="/works" variant="outline">
+                View More Works
+              </Button>
+            </div>
+
+            {/* Price/Availability Note */}
+            {artwork.available && artwork.price && (
+              <p className="mt-6 text-sm text-pearl-muted">
+                Available for purchase • USD ${artwork.price.toLocaleString()}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }

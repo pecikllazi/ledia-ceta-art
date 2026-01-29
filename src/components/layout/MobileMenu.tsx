@@ -10,7 +10,6 @@ const links = [
   { href: '/works', label: 'Works' },
   { href: '/exhibitions', label: 'Exhibitions' },
   { href: '/about', label: 'About' },
-  { href: '/news', label: 'News' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -20,59 +19,77 @@ export default function MobileMenu() {
 
   return (
     <div className="md:hidden">
+      {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-white hover:text-sea-light transition-colors"
+        className="relative w-10 h-10 flex items-center justify-center text-pearl hover:text-biolum-cyan transition-colors"
         aria-label="Toggle menu"
       >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {isOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          )}
-        </svg>
+        <div className="w-6 h-5 flex flex-col justify-between">
+          <span
+            className={clsx(
+              'w-full h-[2px] bg-current transition-all duration-300 origin-center',
+              isOpen && 'rotate-45 translate-y-[9px]'
+            )}
+          />
+          <span
+            className={clsx(
+              'w-full h-[2px] bg-current transition-all duration-300',
+              isOpen && 'opacity-0 scale-0'
+            )}
+          />
+          <span
+            className={clsx(
+              'w-full h-[2px] bg-current transition-all duration-300 origin-center',
+              isOpen && '-rotate-45 -translate-y-[9px]'
+            )}
+          />
+        </div>
       </button>
 
-      {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-gradient-to-b from-sea-deep to-sea-dark border-t border-sea-medium/30 shadow-lg">
-          <nav className="container-custom py-4">
-            {links.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={clsx(
-                    'block py-3 px-4 text-sm font-medium transition-colors rounded border-l-4',
-                    isActive
-                      ? 'text-sea-light bg-sea-medium/30 border-sea-light'
-                      : 'text-white/80 border-transparent hover:text-white hover:bg-sea-medium/20'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
+      {/* Mobile Menu Overlay */}
+      <div
+        className={clsx(
+          'fixed inset-0 z-40 transition-all duration-500',
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        )}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-ocean-abyss/90 backdrop-blur-md"
+          onClick={() => setIsOpen(false)}
+        />
+
+        {/* Menu Content */}
+        <nav className="relative z-10 flex flex-col items-center justify-center h-full">
+          {links.map((link, index) => {
+            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={clsx(
+                  'py-4 text-3xl font-display font-light tracking-wide transition-all duration-300',
+                  isActive
+                    ? 'text-biolum-cyan text-glow'
+                    : 'text-pearl-muted hover:text-pearl'
+                )}
+                style={{
+                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
+                  transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
+                  opacity: isOpen ? 1 : 0,
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+
+          {/* Decorative Element */}
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-biolum-cyan/50 to-transparent" />
+        </nav>
+      </div>
     </div>
   );
 }

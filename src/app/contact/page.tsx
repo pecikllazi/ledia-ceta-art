@@ -9,76 +9,130 @@ export default async function ContactPage() {
   const settings = await client.fetch(siteSettingsQuery);
 
   return (
-    <div>
+    <div className="min-h-screen pt-24">
       {/* Page Header */}
-      <div className="bg-gradient-to-r from-sea-dark via-sea-medium to-sea-dark py-16 md:py-24 border-b border-sea-medium/30">
-        <Container>
-          <p className="text-sea-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
-            Reach Out
-          </p>
-          <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">
-            Get in Touch
-          </h1>
-          <p className="text-sea-pale/80 text-lg max-w-2xl">
-            For inquiries about artworks, commissions, or exhibitions.
-          </p>
+      <div className="relative py-20 md:py-32 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/3 w-[600px] h-[600px] bg-biolum-cyan/5 rounded-full blur-[200px]"></div>
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-biolum-teal/5 rounded-full blur-[150px]"></div>
+        </div>
+
+        <Container className="relative z-10">
+          <div className="max-w-3xl">
+            <span className="inline-block px-4 py-2 text-xs tracking-[0.3em] uppercase text-biolum-cyan/80 border border-biolum-cyan/20 rounded-full backdrop-blur-sm mb-6">
+              Get in Touch
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6">
+              <span className="text-pearl">Con</span>
+              <span className="text-gradient-ocean">tact</span>
+            </h1>
+            <p className="text-xl text-pearl-muted leading-relaxed">
+              For inquiries about artworks, commissions, or exhibitions.
+            </p>
+          </div>
         </Container>
+
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="divider-glow"></div>
+        </div>
       </div>
 
+      {/* Contact Section */}
       <Container className="section-padding">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-serif font-medium mb-6 text-sea-light">Contact Information</h2>
+              <h2 className="text-2xl md:text-3xl font-display font-light mb-8 text-pearl">
+                Contact Information
+              </h2>
 
-              {settings?.contactEmail && (
-                <div className="mb-6 p-4 bg-sea-dark/60 rounded-lg border-l-4 border-sea-bright">
-                  <p className="text-sm text-sea-light mb-1 font-medium uppercase tracking-wider">Email</p>
-                  <a
-                    href={`mailto:${settings.contactEmail}`}
-                    className="text-white hover:text-sea-light transition-colors text-lg"
-                  >
-                    {settings.contactEmail}
-                  </a>
-                </div>
-              )}
+              <div className="space-y-6">
+                {settings?.contactEmail && (
+                  <div className="glass-card rounded-xl p-6 card-hover">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-biolum-cyan/10 flex items-center justify-center text-biolum-cyan flex-shrink-0">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                          <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-pearl-muted uppercase tracking-wider mb-1">Email</p>
+                        <a
+                          href={`mailto:${settings.contactEmail}`}
+                          className="text-lg text-pearl hover:text-biolum-cyan transition-colors"
+                        >
+                          {settings.contactEmail}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-              {settings?.contactPhone && (
-                <div className="mb-6 p-4 bg-sea-dark/60 rounded-lg border-l-4 border-sea-bright">
-                  <p className="text-sm text-sea-light mb-1 font-medium uppercase tracking-wider">Phone</p>
-                  <a
-                    href={`tel:${settings.contactPhone}`}
-                    className="text-white hover:text-sea-light transition-colors text-lg"
-                  >
-                    {settings.contactPhone}
-                  </a>
-                </div>
-              )}
+                {settings?.contactPhone && (
+                  <div className="glass-card rounded-xl p-6 card-hover">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-biolum-cyan/10 flex items-center justify-center text-biolum-cyan flex-shrink-0">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-pearl-muted uppercase tracking-wider mb-1">Phone</p>
+                        <a
+                          href={`tel:${settings.contactPhone}`}
+                          className="text-lg text-pearl hover:text-biolum-cyan transition-colors"
+                        >
+                          {settings.contactPhone}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-              {settings?.location && (
-                <div className="mb-6 p-4 bg-sea-dark/60 rounded-lg border-l-4 border-sea-bright">
-                  <p className="text-sm text-sea-light mb-1 font-medium uppercase tracking-wider">Location</p>
-                  <p className="text-white text-lg">{settings.location}</p>
-                </div>
-              )}
+                {settings?.location && (
+                  <div className="glass-card rounded-xl p-6 card-hover">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-biolum-cyan/10 flex items-center justify-center text-biolum-cyan flex-shrink-0">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-pearl-muted uppercase tracking-wider mb-1">Location</p>
+                        <p className="text-lg text-pearl">{settings.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-sea-dark/80 to-sea-deep/80 rounded-lg border border-sea-medium/50">
-                <h3 className="text-lg font-serif font-medium mb-3 text-sea-light">
+              {/* Info Card */}
+              <div className="mt-8 glass-card rounded-xl p-6 border-l-2 border-biolum-cyan">
+                <h3 className="text-lg font-display font-medium mb-3 text-pearl">
                   Interested in a Piece?
                 </h3>
-                <p className="text-sm text-sea-pale/80 mb-4">
+                <p className="text-pearl-muted mb-4">
                   Please include the artwork title in your message. I'll respond with
                   details on availability, pricing, and shipping.
                 </p>
-                <p className="text-sm text-sea-light font-medium">
+                <p className="text-sm text-biolum-cyan">
                   Commission inquiries are also welcome.
                 </p>
               </div>
             </div>
 
-            <div className="bg-sea-dark/60 p-8 rounded-lg shadow-sea border border-sea-medium/40">
-              <h2 className="text-2xl font-serif font-medium mb-6 text-sea-light">Send a Message</h2>
-              <ContactForm />
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-display font-light mb-8 text-pearl">
+                Send a Message
+              </h2>
+              <div className="glass-card rounded-2xl p-8">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>
