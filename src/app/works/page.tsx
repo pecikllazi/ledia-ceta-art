@@ -23,7 +23,7 @@ export default async function WorksPage({ searchParams }: PageProps) {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-gradient-to-r from-sea-deep via-sea-dark to-sea-medium py-16 md:py-24">
+      <div className="bg-gradient-to-r from-sea-deep via-sea-dark to-sea-medium py-16 md:py-24 border-b border-sea-medium/30">
         <Container>
           <p className="text-sea-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
             Gallery
@@ -31,7 +31,7 @@ export default async function WorksPage({ searchParams }: PageProps) {
           <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">
             Works
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl">
+          <p className="text-sea-pale/80 text-lg max-w-2xl">
             Explore the collection of paintings capturing the spirit of the sea,
             coastal landscapes, and the beauty of nature.
           </p>

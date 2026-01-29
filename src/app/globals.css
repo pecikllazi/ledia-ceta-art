@@ -4,9 +4,9 @@
 
 @layer base {
   body {
-    background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FA 50%, #E8F4F8 100%);
+    background: linear-gradient(180deg, #0A1F2E 0%, #0F3041 50%, #0A1F2E 100%);
     background-attachment: fixed;
-    color: #0F172A;
+    color: #E0F2F1;
     font-family: 'Libre Franklin', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -19,6 +19,7 @@
   h5,
   h6 {
     font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    color: #E0F2F1;
   }
 
   /* Smooth scrolling */
@@ -26,10 +27,10 @@
     scroll-behavior: smooth;
   }
 
-  /* Custom selection color - sea blue */
+  /* Custom selection color - sea teal */
   ::selection {
-    background-color: #7EC8E3;
-    color: #0D2137;
+    background-color: #4DB6AC;
+    color: #0A1F2E;
   }
 }
 
@@ -77,7 +78,7 @@
 
   /* Sea-themed gradient text */
   .text-gradient-sea {
-    background: linear-gradient(135deg, #2E5984 0%, #7EC8E3 100%);
+    background: linear-gradient(135deg, #4DB6AC 0%, #80CBC4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -96,7 +97,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, #7EC8E3, #2E5984, #7EC8E3);
+    background: linear-gradient(90deg, #4DB6AC, #1E7B7B, #4DB6AC);
     background-size: 200% 100%;
     animation: wave-underline 3s ease-in-out infinite;
   }
@@ -113,7 +114,7 @@
 
   .card-lift:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px -15px rgba(46, 89, 132, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(77, 182, 172, 0.4);
   }
 
   /* Shimmer effect for images */
@@ -129,7 +130,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(126, 200, 227, 0.2),
+      rgba(77, 182, 172, 0.3),
       transparent
     );
     transform: translateX(-100%);
@@ -142,6 +143,6 @@
 
   /* Glow effect */
   .glow-sea {
-    box-shadow: 0 0 20px rgba(126, 200, 227, 0.4), 0 0 40px rgba(126, 200, 227, 0.2);
+    box-shadow: 0 0 20px rgba(77, 182, 172, 0.4), 0 0 40px rgba(77, 182, 172, 0.2);
   }
 }

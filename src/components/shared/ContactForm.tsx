@@ -36,7 +36,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">
+        <label htmlFor="name" className="block text-sm font-medium mb-2 text-sea-pale">
           Name
         </label>
         <input
@@ -46,12 +46,12 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-cool-gray rounded-md focus:outline-none focus:ring-2 focus:ring-sea-deep"
+          className="w-full px-4 py-3 bg-sea-deep/50 border border-sea-medium/50 rounded-md text-white placeholder-sea-pale/50 focus:outline-none focus:ring-2 focus:ring-sea-light focus:border-sea-light"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2">
+        <label htmlFor="email" className="block text-sm font-medium mb-2 text-sea-pale">
           Email
         </label>
         <input
@@ -61,12 +61,12 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-cool-gray rounded-md focus:outline-none focus:ring-2 focus:ring-sea-deep"
+          className="w-full px-4 py-3 bg-sea-deep/50 border border-sea-medium/50 rounded-md text-white placeholder-sea-pale/50 focus:outline-none focus:ring-2 focus:ring-sea-light focus:border-sea-light"
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium mb-2">
+        <label htmlFor="subject" className="block text-sm font-medium mb-2 text-sea-pale">
           Subject
         </label>
         <input
@@ -76,12 +76,12 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-cool-gray rounded-md focus:outline-none focus:ring-2 focus:ring-sea-deep"
+          className="w-full px-4 py-3 bg-sea-deep/50 border border-sea-medium/50 rounded-md text-white placeholder-sea-pale/50 focus:outline-none focus:ring-2 focus:ring-sea-light focus:border-sea-light"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">
+        <label htmlFor="message" className="block text-sm font-medium mb-2 text-sea-pale">
           Message
         </label>
         <textarea
@@ -91,18 +91,18 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={6}
-          className="w-full px-4 py-3 border border-cool-gray rounded-md focus:outline-none focus:ring-2 focus:ring-sea-deep resize-none"
+          className="w-full px-4 py-3 bg-sea-deep/50 border border-sea-medium/50 rounded-md text-white placeholder-sea-pale/50 focus:outline-none focus:ring-2 focus:ring-sea-light focus:border-sea-light resize-none"
         />
       </div>
 
       {status === 'success' && (
-        <div className="p-4 bg-green-50 border border-green-200 text-green-800 rounded-md">
+        <div className="p-4 bg-sea-bright/20 border border-sea-light/50 text-sea-light rounded-md">
           Thank you for your message! I'll get back to you soon.
         </div>
       )}
 
       {status === 'error' && (
-        <div className="p-4 bg-red-50 border border-red-200 text-red-800 rounded-md">
+        <div className="p-4 bg-coral/20 border border-coral/50 text-coral rounded-md">
           Something went wrong. Please try again.
         </div>
       )}

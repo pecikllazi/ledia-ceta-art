@@ -54,7 +54,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
     <Container className="section-padding">
       <div className="grid md:grid-cols-2 gap-12">
         <div>
-          <div className="relative aspect-[4/5] bg-warm-gray mb-4">
+          <div className="relative aspect-[4/5] bg-sea-dark mb-4 rounded-lg overflow-hidden border border-sea-medium/30">
             <SanityImage
               image={artwork.mainImage}
               alt={artwork.title}
@@ -67,7 +67,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
           {artwork.gallery && artwork.gallery.length > 0 && (
             <div className="grid grid-cols-3 gap-4">
               {artwork.gallery.map((image, index) => (
-                <div key={index} className="relative aspect-square bg-warm-gray">
+                <div key={index} className="relative aspect-square bg-sea-dark rounded-lg overflow-hidden border border-sea-medium/30">
                   <SanityImage
                     image={image}
                     alt={`${artwork.title} - View ${index + 1}`}
@@ -81,58 +81,58 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
         </div>
 
         <div>
-          <h1 className="text-4xl font-serif font-light mb-2">{artwork.title}</h1>
+          <h1 className="text-4xl font-serif font-light mb-2 text-white">{artwork.title}</h1>
           {artwork.titleChinese && (
-            <p className="text-2xl text-text-secondary mb-6">{artwork.titleChinese}</p>
+            <p className="text-2xl text-sea-pale/70 mb-6">{artwork.titleChinese}</p>
           )}
 
-          <div className="space-y-3 mb-8 pb-8 border-b border-warm-gray">
+          <div className="space-y-3 mb-8 pb-8 border-b border-sea-medium/30">
             <div className="flex justify-between">
-              <span className="text-text-secondary">Year</span>
-              <span className="font-medium">{artwork.year}</span>
+              <span className="text-sea-pale/70">Year</span>
+              <span className="font-medium text-white">{artwork.year}</span>
             </div>
             {artwork.medium && (
               <div className="flex justify-between">
-                <span className="text-text-secondary">Medium</span>
-                <span className="font-medium">{artwork.medium.name}</span>
+                <span className="text-sea-pale/70">Medium</span>
+                <span className="font-medium text-white">{artwork.medium.name}</span>
               </div>
             )}
             {artwork.surface && (
               <div className="flex justify-between">
-                <span className="text-text-secondary">Surface</span>
-                <span className="font-medium">{artwork.surface}</span>
+                <span className="text-sea-pale/70">Surface</span>
+                <span className="font-medium text-white">{artwork.surface}</span>
               </div>
             )}
             {artwork.dimensions && (
               <div className="flex justify-between">
-                <span className="text-text-secondary">Dimensions</span>
-                <span className="font-medium">{formatDimensions()}</span>
+                <span className="text-sea-pale/70">Dimensions</span>
+                <span className="font-medium text-white">{formatDimensions()}</span>
               </div>
             )}
             {artwork.series && (
               <div className="flex justify-between">
-                <span className="text-text-secondary">Series</span>
-                <span className="font-medium">{artwork.series}</span>
+                <span className="text-sea-pale/70">Series</span>
+                <span className="font-medium text-white">{artwork.series}</span>
               </div>
             )}
           </div>
 
           {artwork.description && (
             <div className="mb-8">
-              <h2 className="text-xl font-serif font-medium mb-3">Description</h2>
-              <p className="text-text-secondary leading-relaxed">{artwork.description}</p>
+              <h2 className="text-xl font-serif font-medium mb-3 text-sea-light">Description</h2>
+              <p className="text-sea-pale/80 leading-relaxed">{artwork.description}</p>
             </div>
           )}
 
           {artwork.exhibitions && artwork.exhibitions.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-xl font-serif font-medium mb-3">Exhibitions</h2>
+              <h2 className="text-xl font-serif font-medium mb-3 text-sea-light">Exhibitions</h2>
               <ul className="space-y-2">
                 {artwork.exhibitions.map((exhibition) => (
                   <li key={exhibition._id}>
                     <Link
                       href={`/exhibitions/${exhibition.slug.current}`}
-                      className="text-sea-deep hover:text-sea-medium transition-colors"
+                      className="text-sea-light hover:text-white transition-colors"
                     >
                       {exhibition.title} - {exhibition.city} (
                       {new Date(exhibition.startDate).getFullYear()})
@@ -155,7 +155,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
           </div>
 
           {artwork.available && artwork.price && (
-            <p className="mt-4 text-sm text-text-muted">
+            <p className="mt-4 text-sm text-sea-pale/60">
               Available for purchase • USD ${artwork.price.toLocaleString()}
             </p>
           )}

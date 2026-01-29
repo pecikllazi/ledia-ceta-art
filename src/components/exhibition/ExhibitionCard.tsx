@@ -30,9 +30,9 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
 
   return (
     <Link href={`/exhibitions/${exhibition.slug.current}`} className="group">
-      <div className="grid md:grid-cols-[200px,1fr] gap-6 pb-6 border-b border-warm-gray">
+      <div className="grid md:grid-cols-[200px,1fr] gap-6 pb-6 border-b border-sea-medium/30">
         {exhibition.posterImage && (
-          <div className="relative aspect-[4/5] bg-warm-gray overflow-hidden">
+          <div className="relative aspect-[4/5] bg-sea-dark overflow-hidden rounded-lg border border-sea-medium/30">
             <SanityImage
               image={exhibition.posterImage}
               alt={exhibition.title}
@@ -44,17 +44,17 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
 
         <div>
           {exhibition.type && (
-            <span className="inline-block text-xs uppercase tracking-wider text-sea-deep mb-2">
+            <span className="inline-block text-xs uppercase tracking-wider text-sea-light mb-2">
               {exhibition.type}
             </span>
           )}
-          <h3 className="text-2xl font-serif font-medium mb-2 group-hover:text-sea-deep transition-colors">
+          <h3 className="text-2xl font-serif font-medium mb-2 text-white group-hover:text-sea-light transition-colors">
             {exhibition.title}
           </h3>
           {exhibition.theme && (
-            <p className="text-text-secondary mb-3">{exhibition.theme}</p>
+            <p className="text-sea-pale/80 mb-3">{exhibition.theme}</p>
           )}
-          <div className="text-sm text-text-secondary space-y-1">
+          <div className="text-sm text-sea-pale/70 space-y-1">
             <p>
               {formatDate(exhibition.startDate)}
               {exhibition.endDate && ` – ${formatDate(exhibition.endDate)}`}

@@ -23,7 +23,7 @@ export default async function ExhibitionsPage() {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-gradient-to-r from-sea-medium via-sea-dark to-sea-deep py-16 md:py-24">
+      <div className="bg-gradient-to-r from-sea-medium via-sea-dark to-sea-deep py-16 md:py-24 border-b border-sea-medium/30">
         <Container>
           <p className="text-sea-light text-sm uppercase tracking-[0.2em] mb-3 font-medium">
             Exhibitions & Events
@@ -31,7 +31,7 @@ export default async function ExhibitionsPage() {
           <h1 className="text-4xl md:text-6xl font-serif font-light text-white mb-4">
             Exhibitions
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl">
+          <p className="text-sea-pale/80 text-lg max-w-2xl">
             A chronicle of shows, biennales, and collaborative projects
             around the world.
           </p>
@@ -43,10 +43,10 @@ export default async function ExhibitionsPage() {
           {years.map((year) => (
             <div key={year}>
               <div className="flex items-center gap-4 mb-8">
-                <h2 className="text-4xl font-serif font-light text-sea-deep">
+                <h2 className="text-4xl font-serif font-light text-sea-light">
                   {year}
                 </h2>
-                <div className="flex-1 h-0.5 bg-gradient-to-r from-sea-light to-transparent"></div>
+                <div className="flex-1 h-0.5 bg-gradient-to-r from-sea-medium to-transparent"></div>
               </div>
               <div className="space-y-6">
                 {groupedByYear[year].map((exhibition: any) => (

@@ -22,7 +22,7 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
   if (!artworks || artworks.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-text-secondary">No artworks found.</p>
+        <p className="text-sea-pale/70">No artworks found.</p>
       </div>
     );
   }
@@ -35,7 +35,7 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
           href={`/works/${artwork.slug.current}`}
           className="group"
         >
-          <div className="relative aspect-[4/5] bg-warm-gray overflow-hidden mb-4">
+          <div className="relative aspect-[4/5] bg-sea-dark overflow-hidden mb-4 rounded-lg border border-sea-medium/30">
             <SanityImage
               image={artwork.mainImage}
               alt={artwork.title}
@@ -43,15 +43,15 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
             {artwork.available && (
-              <div className="absolute top-4 right-4 bg-sea-deep text-white text-xs px-3 py-1 rounded-full">
+              <div className="absolute top-4 right-4 bg-sea-bright text-white text-xs px-3 py-1 rounded-full">
                 Available
               </div>
             )}
           </div>
-          <h3 className="text-lg font-serif font-medium mb-1 group-hover:text-sea-deep transition-colors">
+          <h3 className="text-lg font-serif font-medium mb-1 text-white group-hover:text-sea-light transition-colors">
             {artwork.title}
           </h3>
-          <p className="text-sm text-text-secondary">
+          <p className="text-sm text-sea-pale/70">
             {artwork.year}{artwork.medium && ` • ${artwork.medium.name}`}
           </p>
         </Link>

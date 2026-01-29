@@ -23,10 +23,10 @@ export default function Button({
     'inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-md';
 
   const variants = {
-    primary: 'bg-sea-deep text-white hover:bg-sea-medium',
-    secondary: 'bg-warm-gray text-text-primary hover:bg-cool-gray',
+    primary: 'bg-sea-bright text-white hover:bg-sea-light',
+    secondary: 'bg-sea-dark text-sea-pale hover:bg-sea-medium',
     outline:
-      'border-2 border-sea-deep text-sea-deep hover:bg-sea-deep hover:text-white',
+      'border-2 border-sea-light text-sea-light hover:bg-sea-light hover:text-sea-deep',
   };
 
   const classes = clsx(baseStyles, variants[variant], className);
