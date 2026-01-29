@@ -24,8 +24,8 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
   if (!artworks || artworks.length === 0) {
     return (
       <div className="text-center py-20">
-        <div className="inline-block p-8 rounded-2xl glass-card">
-          <p className="text-pearl-muted text-lg">No artworks found.</p>
+        <div className="inline-block p-8 bg-cream border border-cloud">
+          <p className="text-warm-gray text-lg">No artworks found.</p>
         </div>
       </div>
     );
@@ -39,42 +39,34 @@ export default function ArtworkGrid({ artworks }: ArtworkGridProps) {
           href={`/works/${artwork.slug.current}`}
           className="group"
         >
-          <div className="relative overflow-hidden rounded-2xl glass-card card-hover">
+          <div className="relative overflow-hidden bg-cream">
             {/* Image */}
             <div className="relative aspect-[4/5] overflow-hidden">
               <SanityImage
                 image={artwork.mainImage}
                 alt={artwork.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss via-ocean-abyss/30 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
 
               {/* Available Badge */}
               {artwork.available && (
-                <div className="absolute top-4 right-4 px-3 py-1 text-xs font-medium rounded-full bg-biolum-teal/20 text-biolum-teal border border-biolum-teal/30 backdrop-blur-sm">
+                <div className="absolute top-4 right-4 px-3 py-1 text-xs font-medium bg-paper/90 text-ocean border border-ocean">
                   Available
                 </div>
               )}
-
-              {/* Shimmer Effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-biolum-cyan/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </div>
             </div>
 
             {/* Content */}
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <h3 className="text-xl font-display font-light mb-2 text-pearl group-hover:text-biolum-cyan transition-colors duration-300">
+            <div className="p-6">
+              <h3 className="text-xl font-serif font-normal mb-2 text-ink group-hover:text-ocean transition-colors duration-300">
                 {artwork.title}
               </h3>
-              <div className="flex items-center gap-2 text-sm text-pearl-muted">
+              <div className="flex items-center gap-2 text-sm text-stone">
                 <span>{artwork.year}</span>
                 {artwork.medium && (
                   <>
-                    <span className="w-1 h-1 rounded-full bg-biolum-cyan/50"></span>
+                    <span className="w-1 h-px bg-silver"></span>
                     <span>{artwork.medium.name}</span>
                   </>
                 )}

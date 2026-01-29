@@ -5,20 +5,14 @@ import Button from '@/components/ui/Button';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24 bg-paper">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-biolum-cyan/5 rounded-full blur-[200px]"></div>
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-biolum-teal/5 rounded-full blur-[150px]"></div>
-        </div>
-
         <Container className="relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image */}
             <div className="relative order-2 lg:order-1">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden glass-card">
+              <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                 <Image
                   src="/aboutmevisual.jpg"
                   alt="Ledia Çeta - Visual Artist"
@@ -26,25 +20,23 @@ export default function AboutPage() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/60 via-transparent to-transparent"></div>
               </div>
               {/* Floating accent */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl glass-card flex items-center justify-center">
-                <span className="text-4xl font-display text-biolum-cyan">30+</span>
-                <span className="text-xs text-pearl-muted ml-2">Years of<br/>Art</span>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-cream border border-cloud flex items-center justify-center">
+                <span className="text-4xl font-serif text-ocean">30+</span>
+                <span className="text-xs text-stone ml-2">Years of<br/>Art</span>
               </div>
             </div>
 
             {/* Content */}
             <div className="order-1 lg:order-2">
-              <span className="inline-block px-4 py-2 text-xs tracking-[0.3em] uppercase text-biolum-cyan/80 border border-biolum-cyan/20 rounded-full backdrop-blur-sm mb-6">
+              <span className="inline-block text-xs tracking-[0.3em] uppercase text-stone mb-6">
                 About the Artist
               </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6">
-                <span className="text-pearl">Ledia </span>
-                <span className="text-gradient-ocean">Çeta</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-ink">
+                Ledia Çeta
               </h1>
-              <p className="text-xl text-pearl-muted leading-relaxed mb-8">
+              <p className="text-xl text-warm-gray leading-relaxed mb-8">
                 An Albanian painter capturing the spirit of the sea through three decades
                 of artistic exploration across continents.
               </p>
@@ -65,18 +57,17 @@ export default function AboutPage() {
       <section className="relative section-padding">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-light mb-12">
-              <span className="text-pearl">The Sea as </span>
-              <span className="text-gradient-ocean">Spiritual Anchor</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light mb-12 text-ink">
+              The Sea as Spiritual Anchor
             </h2>
             <div className="space-y-6">
-              <p className="text-lg md:text-xl text-pearl-muted leading-relaxed">
+              <p className="text-lg md:text-xl text-warm-gray leading-relaxed">
                 As an Albanian painter and the spouse of a diplomat, I have spent over thirty years
                 accompanying my husband across numerous countries, witnessing the splendour of diverse
                 civilisations and gaining firsthand insight into contemporary art.
               </p>
-              <p className="text-lg md:text-xl text-pearl-muted leading-relaxed">
-                Amid this constant movement, <span className="text-biolum-cyan">the sea of Albania has remained
+              <p className="text-lg md:text-xl text-warm-gray leading-relaxed">
+                Amid this constant movement, <span className="text-ocean">the sea of Albania has remained
                 my spiritual anchor.</span> I depict the sea with the stroke of the spatula — a practice
                 that brings me profound emotional healing.
               </p>
@@ -84,17 +75,16 @@ export default function AboutPage() {
           </div>
         </Container>
         <div className="absolute bottom-0 left-0 right-0">
-          <div className="divider-glow"></div>
+          <div className="divider"></div>
         </div>
       </section>
 
       {/* Philosophy Cards */}
-      <section className="section-padding">
+      <section className="section-padding bg-cream">
         <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-light">
-              <span className="text-pearl">Artistic </span>
-              <span className="text-gradient-ocean">Philosophy</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-ink">
+              Artistic Philosophy
             </h2>
           </div>
 
@@ -130,13 +120,13 @@ export default function AboutPage() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="glass-card rounded-2xl p-8 card-hover"
+                className="bg-paper border border-cloud p-8"
               >
-                <div className="w-14 h-14 rounded-xl bg-biolum-cyan/10 flex items-center justify-center text-biolum-cyan mb-6">
+                <div className="w-14 h-14 border border-ocean flex items-center justify-center text-ocean mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-display font-medium text-pearl mb-4">{item.title}</h3>
-                <p className="text-pearl-muted leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-serif font-normal text-ink mb-4">{item.title}</h3>
+                <p className="text-warm-gray leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -144,21 +134,17 @@ export default function AboutPage() {
       </section>
 
       {/* Quote Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-biolum-cyan/5 rounded-full blur-[200px]"></div>
-        </div>
-
+      <section className="section-padding relative overflow-hidden bg-paper">
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <blockquote className="relative">
-              <div className="text-biolum-cyan/20 text-9xl absolute -top-16 left-1/2 -translate-x-1/2 font-display">"</div>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-display font-light text-pearl leading-relaxed mb-8 relative z-10">
+              <div className="text-cloud text-9xl absolute -top-16 left-1/2 -translate-x-1/2 font-serif">"</div>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-ink leading-relaxed mb-8 relative z-10">
                 My hometown is nestled by the Adriatic Sea, where crystal-clear waters kiss the reefs
                 and fishing boats sway gently on the shimmering waves. The ocean is the very inspiration
                 behind my creations.
               </p>
-              <footer className="text-pearl-muted text-sm">
+              <footer className="text-stone text-sm">
                 Interview with Xinhua News Agency, December 2025
               </footer>
             </blockquote>
@@ -167,12 +153,11 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="section-padding">
+      <section className="section-padding bg-cream">
         <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-light">
-              <span className="text-pearl">Artistic </span>
-              <span className="text-gradient-ocean">Journey</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-ink">
+              Artistic Journey
             </h2>
           </div>
 
@@ -186,16 +171,16 @@ export default function AboutPage() {
             ].map((item, index) => (
               <div key={index} className="relative pl-8 pb-12 last:pb-0">
                 {/* Timeline line */}
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-biolum-cyan via-biolum-teal to-transparent"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-cloud"></div>
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-1 w-2 h-2 -translate-x-1/2 rounded-full bg-biolum-cyan"></div>
+                <div className="absolute left-0 top-1 w-2 h-2 -translate-x-1/2 rounded-full bg-ocean"></div>
 
-                <div className="glass-card rounded-xl p-6">
+                <div className="bg-paper border border-cloud p-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <h3 className="text-lg font-display font-medium text-biolum-cyan">{item.period}</h3>
-                    <span className="text-sm text-pearl-muted">{item.location}</span>
+                    <h3 className="text-lg font-serif font-normal text-ocean">{item.period}</h3>
+                    <span className="text-sm text-stone">{item.location}</span>
                   </div>
-                  <p className="text-pearl-muted">{item.description}</p>
+                  <p className="text-warm-gray">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -204,20 +189,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-deep-sea">
         <Container>
-          <div className="glass-card rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
-            {/* Background glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-biolum-cyan/10 rounded-full blur-[100px]"></div>
-
+          <div className="p-12 md:p-16 text-center relative overflow-hidden">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-display font-light mb-6 text-pearl">
+              <h2 className="text-3xl md:text-4xl font-serif font-light mb-6 text-cream">
                 Let's Connect
               </h2>
-              <p className="text-xl text-pearl-muted mb-8 max-w-xl mx-auto">
+              <p className="text-xl text-cream/70 mb-8 max-w-xl mx-auto">
                 Interested in my work or have a commission in mind?
               </p>
-              <Button href="/contact" variant="primary" size="lg">
+              <Button href="/contact" variant="secondary" size="lg">
                 Get in Touch
               </Button>
             </div>

@@ -32,7 +32,7 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
 
   return (
     <Link href={`/exhibitions/${exhibition.slug.current}`} className="group block">
-      <div className="glass-card rounded-2xl overflow-hidden card-hover">
+      <div className="bg-cream overflow-hidden border border-cloud hover:border-silver transition-colors duration-300">
         <div className="grid md:grid-cols-[240px,1fr] gap-6">
           {/* Image */}
           {exhibition.posterImage && (
@@ -41,9 +41,8 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
                 image={exhibition.posterImage}
                 alt={exhibition.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/60 via-transparent to-transparent md:bg-gradient-to-r"></div>
             </div>
           )}
 
@@ -51,25 +50,25 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
           <div className="p-6 md:py-8 md:pr-8 md:pl-0 flex flex-col justify-center">
             {/* Type Badge */}
             {exhibition.type && (
-              <span className="inline-block self-start px-3 py-1 text-xs tracking-wider uppercase text-biolum-cyan border border-biolum-cyan/30 rounded-full mb-4">
+              <span className="inline-block self-start px-3 py-1 text-xs tracking-wider uppercase text-stone border border-cloud mb-4">
                 {exhibition.type}
               </span>
             )}
 
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl font-display font-light mb-2 text-pearl group-hover:text-biolum-cyan transition-colors duration-300">
+            <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-ink group-hover:text-ocean transition-colors duration-300">
               {exhibition.title}
             </h3>
 
             {/* Theme */}
             {exhibition.theme && (
-              <p className="text-pearl-muted mb-4 italic">"{exhibition.theme}"</p>
+              <p className="text-stone mb-4 italic font-serif">"{exhibition.theme}"</p>
             )}
 
             {/* Details */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-pearl-muted">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-stone">
               <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-biolum-cyan/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg className="w-4 h-4 text-warm-gray" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -80,7 +79,7 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
               </span>
 
               <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-biolum-cyan/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg className="w-4 h-4 text-warm-gray" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
@@ -90,14 +89,14 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
 
             {/* Venue */}
             {exhibition.venue && (
-              <p className="mt-3 text-sm text-pearl-subtle">{exhibition.venue}</p>
+              <p className="mt-3 text-sm text-warm-gray">{exhibition.venue}</p>
             )}
 
             {/* View Link */}
             <div className="mt-6 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-              <span className="inline-flex items-center gap-2 text-sm text-biolum-cyan">
+              <span className="inline-flex items-center gap-2 text-sm text-ink">
                 View Details
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </span>

@@ -31,11 +31,11 @@ export default function CurrentExhibition({ exhibition }: CurrentExhibitionProps
   };
 
   return (
-    <section className="section-padding bg-off-white">
+    <section className="section-padding bg-cream">
       <Container>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {exhibition.posterImage && (
-            <div className="relative aspect-[4/3] bg-warm-gray overflow-hidden">
+            <div className="relative aspect-[4/3] bg-cloud overflow-hidden">
               <SanityImage
                 image={exhibition.posterImage}
                 alt={exhibition.title}
@@ -46,23 +46,23 @@ export default function CurrentExhibition({ exhibition }: CurrentExhibitionProps
           )}
 
           <div>
-            <p className="text-sm uppercase tracking-wider text-sea-deep mb-2">
+            <p className="text-sm uppercase tracking-widest text-ocean mb-2">
               Current Exhibition
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-light mb-4 text-ink">
               {exhibition.title}
             </h2>
             {exhibition.theme && (
-              <p className="text-xl text-text-secondary mb-4">{exhibition.theme}</p>
+              <p className="text-xl text-stone mb-4 italic font-serif">{exhibition.theme}</p>
             )}
-            <div className="space-y-2 mb-6">
-              <p className="text-text-secondary">
+            <div className="space-y-2 mb-6 text-warm-gray">
+              <p>
                 {formatDate(exhibition.startDate)} – {formatDate(exhibition.endDate)}
               </p>
               {exhibition.venue && (
-                <p className="text-text-secondary">{exhibition.venue}</p>
+                <p>{exhibition.venue}</p>
               )}
-              <p className="text-text-secondary">{exhibition.city}</p>
+              <p>{exhibition.city}</p>
             </div>
             <Button href={`/exhibitions/${exhibition.slug.current}`} variant="primary">
               Learn More

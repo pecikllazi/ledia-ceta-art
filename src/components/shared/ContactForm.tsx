@@ -34,16 +34,16 @@ export default function ContactForm() {
   };
 
   const inputClasses = `
-    w-full px-4 py-3.5 bg-ocean-midnight/50 border border-pearl-subtle/20 rounded-xl
-    text-pearl placeholder-pearl-subtle/50
-    focus:outline-none focus:border-biolum-cyan/50 focus:ring-1 focus:ring-biolum-cyan/20
+    w-full px-4 py-3.5 bg-paper border border-cloud
+    text-ink placeholder-warm-gray
+    focus:outline-none focus:border-stone focus:ring-1 focus:ring-stone/20
     transition-all duration-300
   `;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2 text-pearl-muted">
+        <label htmlFor="name" className="block text-sm font-medium mb-2 text-stone">
           Name
         </label>
         <input
@@ -59,7 +59,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2 text-pearl-muted">
+        <label htmlFor="email" className="block text-sm font-medium mb-2 text-stone">
           Email
         </label>
         <input
@@ -75,7 +75,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium mb-2 text-pearl-muted">
+        <label htmlFor="subject" className="block text-sm font-medium mb-2 text-stone">
           Subject
         </label>
         <input
@@ -91,7 +91,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2 text-pearl-muted">
+        <label htmlFor="message" className="block text-sm font-medium mb-2 text-stone">
           Message
         </label>
         <textarea
@@ -107,13 +107,13 @@ export default function ContactForm() {
       </div>
 
       {status === 'success' && (
-        <div className="p-4 rounded-xl bg-biolum-teal/10 border border-biolum-teal/30 text-biolum-teal">
+        <div className="p-4 bg-cream border border-cloud text-stone">
           Thank you for your message! I'll get back to you soon.
         </div>
       )}
 
       {status === 'error' && (
-        <div className="p-4 rounded-xl bg-coral-warm/10 border border-coral-warm/30 text-coral-warm">
+        <div className="p-4 bg-cream border border-cloud text-stone">
           Something went wrong. Please try again.
         </div>
       )}

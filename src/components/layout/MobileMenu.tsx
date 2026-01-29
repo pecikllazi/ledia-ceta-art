@@ -22,25 +22,25 @@ export default function MobileMenu() {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-10 h-10 flex items-center justify-center text-pearl hover:text-biolum-cyan transition-colors"
+        className="relative w-10 h-10 flex items-center justify-center text-ink"
         aria-label="Toggle menu"
       >
         <div className="w-6 h-5 flex flex-col justify-between">
           <span
             className={clsx(
-              'w-full h-[2px] bg-current transition-all duration-300 origin-center',
+              'w-full h-px bg-current transition-all duration-300 origin-center',
               isOpen && 'rotate-45 translate-y-[9px]'
             )}
           />
           <span
             className={clsx(
-              'w-full h-[2px] bg-current transition-all duration-300',
+              'w-full h-px bg-current transition-all duration-300',
               isOpen && 'opacity-0 scale-0'
             )}
           />
           <span
             className={clsx(
-              'w-full h-[2px] bg-current transition-all duration-300 origin-center',
+              'w-full h-px bg-current transition-all duration-300 origin-center',
               isOpen && '-rotate-45 -translate-y-[9px]'
             )}
           />
@@ -56,7 +56,7 @@ export default function MobileMenu() {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-ocean-abyss/90 backdrop-blur-md"
+          className="absolute inset-0 bg-paper/98 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
 
@@ -70,10 +70,10 @@ export default function MobileMenu() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={clsx(
-                  'py-4 text-3xl font-display font-light tracking-wide transition-all duration-300',
+                  'py-4 text-3xl font-serif font-light tracking-wide transition-all duration-300',
                   isActive
-                    ? 'text-biolum-cyan text-glow'
-                    : 'text-pearl-muted hover:text-pearl'
+                    ? 'text-ink'
+                    : 'text-stone hover:text-ink'
                 )}
                 style={{
                   transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
@@ -85,9 +85,6 @@ export default function MobileMenu() {
               </Link>
             );
           })}
-
-          {/* Decorative Element */}
-          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-biolum-cyan/50 to-transparent" />
         </nav>
       </div>
     </div>

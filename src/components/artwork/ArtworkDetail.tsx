@@ -53,13 +53,13 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
   };
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24 bg-paper">
       <Container className="section-padding">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Image Section */}
           <div>
             {/* Main Image */}
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden glass-card mb-6">
+            <div className="relative aspect-[4/5] overflow-hidden bg-cream mb-6">
               <SanityImage
                 image={artwork.mainImage}
                 alt={artwork.title}
@@ -75,7 +75,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
                 {artwork.gallery.map((image, index) => (
                   <div
                     key={index}
-                    className="relative aspect-square rounded-lg overflow-hidden glass-card cursor-pointer hover:ring-2 ring-biolum-cyan/50 transition-all"
+                    className="relative aspect-square overflow-hidden bg-cream cursor-pointer hover:ring-2 ring-ocean transition-all"
                   >
                     <SanityImage
                       image={image}
@@ -94,51 +94,51 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
             {/* Back Link */}
             <Link
               href="/works"
-              className="inline-flex items-center gap-2 text-sm text-pearl-muted hover:text-biolum-cyan transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm text-stone hover:text-ink transition-colors mb-8"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
               Back to Collection
             </Link>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-display font-light mb-3 text-pearl">
+            <h1 className="text-4xl md:text-5xl font-serif font-light mb-3 text-ink">
               {artwork.title}
             </h1>
             {artwork.titleChinese && (
-              <p className="text-2xl text-pearl-muted mb-8">{artwork.titleChinese}</p>
+              <p className="text-2xl text-stone mb-8">{artwork.titleChinese}</p>
             )}
 
             {/* Details Card */}
-            <div className="glass-card rounded-2xl p-6 mb-8">
+            <div className="bg-cream border border-cloud p-6 mb-8">
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
-                  <span className="text-pearl-muted">Year</span>
-                  <span className="text-pearl font-medium">{artwork.year}</span>
+                <div className="flex justify-between items-center py-3 border-b border-cloud">
+                  <span className="text-stone">Year</span>
+                  <span className="text-ink font-medium">{artwork.year}</span>
                 </div>
                 {artwork.medium && (
-                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
-                    <span className="text-pearl-muted">Medium</span>
-                    <span className="text-pearl font-medium">{artwork.medium.name}</span>
+                  <div className="flex justify-between items-center py-3 border-b border-cloud">
+                    <span className="text-stone">Medium</span>
+                    <span className="text-ink font-medium">{artwork.medium.name}</span>
                   </div>
                 )}
                 {artwork.surface && (
-                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
-                    <span className="text-pearl-muted">Surface</span>
-                    <span className="text-pearl font-medium">{artwork.surface}</span>
+                  <div className="flex justify-between items-center py-3 border-b border-cloud">
+                    <span className="text-stone">Surface</span>
+                    <span className="text-ink font-medium">{artwork.surface}</span>
                   </div>
                 )}
                 {artwork.dimensions && (
-                  <div className="flex justify-between items-center py-3 border-b border-pearl-subtle/10">
-                    <span className="text-pearl-muted">Dimensions</span>
-                    <span className="text-pearl font-medium">{formatDimensions()}</span>
+                  <div className="flex justify-between items-center py-3 border-b border-cloud">
+                    <span className="text-stone">Dimensions</span>
+                    <span className="text-ink font-medium">{formatDimensions()}</span>
                   </div>
                 )}
                 {artwork.series && (
                   <div className="flex justify-between items-center py-3">
-                    <span className="text-pearl-muted">Series</span>
-                    <span className="text-pearl font-medium">{artwork.series}</span>
+                    <span className="text-stone">Series</span>
+                    <span className="text-ink font-medium">{artwork.series}</span>
                   </div>
                 )}
               </div>
@@ -147,21 +147,21 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
             {/* Description */}
             {artwork.description && (
               <div className="mb-8">
-                <h2 className="text-lg font-display font-medium mb-4 text-biolum-cyan">About This Work</h2>
-                <p className="text-pearl-muted leading-relaxed">{artwork.description}</p>
+                <h2 className="text-lg font-serif font-normal mb-4 text-ocean">About This Work</h2>
+                <p className="text-warm-gray leading-relaxed">{artwork.description}</p>
               </div>
             )}
 
             {/* Exhibitions */}
             {artwork.exhibitions && artwork.exhibitions.length > 0 && (
               <div className="mb-8">
-                <h2 className="text-lg font-display font-medium mb-4 text-biolum-cyan">Exhibited At</h2>
+                <h2 className="text-lg font-serif font-normal mb-4 text-ocean">Exhibited At</h2>
                 <ul className="space-y-2">
                   {artwork.exhibitions.map((exhibition) => (
                     <li key={exhibition._id}>
                       <Link
                         href={`/exhibitions/${exhibition.slug.current}`}
-                        className="text-pearl-muted hover:text-biolum-cyan transition-colors"
+                        className="text-stone hover:text-ink transition-colors"
                       >
                         {exhibition.title} — {exhibition.city} ({new Date(exhibition.startDate).getFullYear()})
                       </Link>
@@ -185,7 +185,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
 
             {/* Price/Availability Note */}
             {artwork.available && artwork.price && (
-              <p className="mt-6 text-sm text-pearl-muted">
+              <p className="mt-6 text-sm text-stone">
                 Available for purchase • USD ${artwork.price.toLocaleString()}
               </p>
             )}

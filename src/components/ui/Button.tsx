@@ -22,7 +22,7 @@ export default function Button({
   type = 'button',
 }: ButtonProps) {
   const baseStyles =
-    'relative inline-flex items-center justify-center font-medium tracking-wide transition-all duration-300 rounded-full overflow-hidden';
+    'relative inline-flex items-center justify-center font-sans font-medium tracking-wide transition-all duration-300';
 
   const sizes = {
     sm: 'px-5 py-2 text-sm',
@@ -32,23 +32,23 @@ export default function Button({
 
   const variants = {
     primary: `
-      bg-gradient-to-r from-biolum-cyan to-biolum-teal text-ocean-abyss
-      hover:shadow-glow-cyan hover:scale-[1.02]
-      active:scale-[0.98]
+      bg-ink text-paper
+      hover:bg-charcoal
+      active:bg-stone
     `,
     secondary: `
-      bg-ocean-twilight/50 text-pearl border border-pearl-subtle
-      hover:bg-ocean-twilight hover:border-pearl-muted
-      active:scale-[0.98]
+      bg-cream text-ink border border-cloud
+      hover:bg-cloud hover:border-silver
+      active:bg-silver
     `,
     outline: `
-      bg-transparent text-biolum-cyan border border-biolum-cyan/50
-      hover:bg-biolum-cyan/10 hover:border-biolum-cyan
-      active:scale-[0.98]
+      bg-transparent text-ink border border-ink
+      hover:bg-ink hover:text-paper
+      active:bg-charcoal
     `,
     ghost: `
-      bg-transparent text-pearl-muted
-      hover:text-pearl hover:bg-pearl-subtle/10
+      bg-transparent text-stone
+      hover:text-ink hover:bg-cream
     `,
   };
 

@@ -16,7 +16,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden md:flex items-center gap-1">
+    <nav className="hidden md:flex items-center gap-8">
       {links.map((link) => {
         const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
         return (
@@ -24,16 +24,19 @@ export default function Navigation() {
             key={link.href}
             href={link.href}
             className={clsx(
-              'relative px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-full',
+              'relative text-sm tracking-wide transition-colors duration-300',
               isActive
-                ? 'text-biolum-cyan'
-                : 'text-pearl-muted hover:text-pearl'
+                ? 'text-ink'
+                : 'text-stone hover:text-ink'
             )}
           >
             {link.label}
-            {isActive && (
-              <span className="absolute inset-0 rounded-full bg-biolum-cyan/10 border border-biolum-cyan/30"></span>
-            )}
+            <span
+              className={clsx(
+                'absolute -bottom-1 left-0 h-px bg-ink transition-all duration-300',
+                isActive ? 'w-full' : 'w-0 group-hover:w-full'
+              )}
+            />
           </Link>
         );
       })}
