@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Sea-inspired blue palette
-        'sea-deep': '#0D2137',
-        'sea-dark': '#1A3A5C',
-        'sea-medium': '#2E5984',
-        'sea-bright': '#3B82B6',
-        'sea-light': '#7EC8E3',
-        'sea-pale': '#B5E2F4',
-        'sea-foam': '#E0F4FC',
+        // Deep ocean blue-green palette (teal undertones)
+        'sea-deep': '#0A1F2E',
+        'sea-dark': '#0F3041',
+        'sea-medium': '#1A5566',
+        'sea-bright': '#1E7B7B',
+        'sea-light': '#4DB6AC',
+        'sea-pale': '#80CBC4',
+        'sea-foam': '#B2DFDB',
 
         // Accent colors
         'coral': '#FF6B6B',
@@ -24,14 +24,14 @@ const config: Config = {
         'sunset': '#FF8C42',
 
         // Neutral colors
-        'off-white': '#F8FAFC',
-        black: '#0F172A',
-        charcoal: '#1E293B',
-        'warm-gray': '#E2E8F0',
-        'cool-gray': '#CBD5E1',
-        'text-primary': '#0F172A',
-        'text-secondary': '#475569',
-        'text-muted': '#94A3B8',
+        'off-white': '#F0F5F4',
+        black: '#0A1F2E',
+        charcoal: '#1A2F3A',
+        'warm-gray': '#D4E0DE',
+        'cool-gray': '#B8C9C5',
+        'text-primary': '#0A1F2E',
+        'text-secondary': '#3D5A5A',
+        'text-muted': '#6B8A8A',
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'Times New Roman', 'serif'],
@@ -63,12 +63,11 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'sea-gradient': 'linear-gradient(135deg, #0D2137 0%, #2E5984 50%, #7EC8E3 100%)',
-        'wave-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%237EC8E3' fill-opacity='0.2' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E\")",
+        'sea-gradient': 'linear-gradient(135deg, #0A1F2E 0%, #1A5566 50%, #4DB6AC 100%)',
       },
       boxShadow: {
-        'sea': '0 10px 40px -10px rgba(46, 89, 132, 0.3)',
-        'sea-lg': '0 20px 60px -15px rgba(46, 89, 132, 0.4)',
+        'sea': '0 10px 40px -10px rgba(26, 85, 102, 0.3)',
+        'sea-lg': '0 20px 60px -15px rgba(26, 85, 102, 0.4)',
       },
     },
   },
