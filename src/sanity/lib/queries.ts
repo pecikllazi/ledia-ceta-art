@@ -18,7 +18,7 @@ export const allArtworksQuery = groq`
 `;
 
 export const featuredArtworksQuery = groq`
-  *[_type == "artwork" && featured == true] | order(order asc) [0...6] {
+  *[_type == "artwork" && featured == true] | order(order asc) [0...14] {
     _id,
     title,
     slug,
