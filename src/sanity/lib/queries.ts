@@ -82,6 +82,46 @@ export const mediumTypesQuery = groq`
   }
 `;
 
+// Collections
+export const allCollectionsQuery = groq`
+  *[_type == "collection"] | order(order asc) {
+    _id,
+    title,
+    slug,
+    description,
+    coverImage,
+    "artworkCount": count(*[_type == "artwork" && references(^._id)]),
+    "firstArtwork": *[_type == "artwork" && references(^._id)] | order(order asc) [0] {
+      mainImage
+    }
+  }
+`;
+
+export const collectionBySlugQuery = groq`
+  *[_type == "collection" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    coverImage
+  }
+`;
+
+export const artworksByCollectionQuery = groq`
+  *[_type == "artwork" && collection->slug.current == $collection] | order(order asc, year desc) {
+    _id,
+    title,
+    slug,
+    year,
+    medium-> {
+      name,
+      slug
+    },
+    mainImage,
+    available
+  }
+`;
+
 // Exhibitions
 export const allExhibitionsQuery = groq`
   *[_type == "exhibition"] | order(startDate desc) {
