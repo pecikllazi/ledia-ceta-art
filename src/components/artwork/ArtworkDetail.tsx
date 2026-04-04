@@ -174,7 +174,7 @@ export default function ArtworkDetail({ artwork }: ArtworkDetailProps) {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               {artwork.available && (
-                <Button href="/contact" variant="primary" size="lg">
+                <Button href={`/contact?artwork=${encodeURIComponent(artwork.title)}`} variant="primary" size="lg">
                   Inquire About This Work
                 </Button>
               )}

@@ -2,11 +2,28 @@ import { client } from '@/sanity/lib/client';
 import { siteSettingsQuery } from '@/sanity/lib/queries';
 import Container from '@/components/ui/Container';
 import ContactForm from '@/components/shared/ContactForm';
+import { Metadata } from 'next';
 
 export const revalidate = 60;
 
-export default async function ContactPage() {
-  const settings = await client.fetch(siteSettingsQuery);
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Get in touch with Ledia Ceta for artwork inquiries, commissions, or exhibition collaborations.',
+};
+
+interface PageProps {
+  searchParams: Promise<{ artwork?: string }>;
+}
+
+export default async function ContactPage({ searchParams }: PageProps) {
+  const [settings, params] = await Promise.all([
+    client.fetch(siteSettingsQuery),
+    searchParams,
+  ]);
+
+  const prefillSubject = params.artwork
+    ? `Inquiry about "${params.artwork}"`
+    : '';
 
   return (
     <div className="min-h-screen pt-24 bg-paper">
@@ -55,7 +72,7 @@ export default async function ContactPage() {
               <div className="space-y-4">
                 {settings?.contactEmail && (
                   <div className="flex items-center gap-4 p-4 bg-cream border border-ink/10">
-                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0">
+                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0" aria-hidden="true">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
@@ -75,7 +92,7 @@ export default async function ContactPage() {
 
                 {settings?.contactPhone && (
                   <div className="flex items-center gap-4 p-4 bg-cream border border-ink/10">
-                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0">
+                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0" aria-hidden="true">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                       </svg>
@@ -94,7 +111,7 @@ export default async function ContactPage() {
 
                 {settings?.location && (
                   <div className="flex items-center gap-4 p-4 bg-cream border border-ink/10">
-                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0">
+                    <div className="w-10 h-10 border border-ink/30 flex items-center justify-center text-ink flex-shrink-0" aria-hidden="true">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
@@ -129,7 +146,7 @@ export default async function ContactPage() {
                 Send a Message
               </h2>
               <div className="bg-cream border border-ink/10 p-6 md:p-8">
-                <ContactForm />
+                <ContactForm prefillSubject={prefillSubject} />
               </div>
             </div>
           </div>

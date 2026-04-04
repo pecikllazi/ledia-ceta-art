@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /studio
+Disallow: /api/
+Disallow: /test
+
+Sitemap: https://ledia-ceta-art.vercel.app/sitemap.xml
